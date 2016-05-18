@@ -1,10 +1,11 @@
+FORMAT: 1A
+HOST: http://open.gtscn.cn/api
+
 # gts-api
 光速达智能云
 
 
 # 光速达智能云API接口使用说明
-
-[TOC]
 
 ## 概述
 本文档用于说明私有云调用光速达智能云接口方法，主要分三部分进行相关内容定义和介绍。
@@ -65,21 +66,22 @@
 
 1. 设置参数值
 
-公共参数：
-```languag
+ 公共参数：
+```
 appId=123456 //第三方用户唯一凭证
 timestamp=1463535207898  //当前时间戳
 nonstr=aaabbb  //随机字符串
 ```
+
  业务参数：
-```languag
+```
 deviceId=GTS0001
 pageSize=20
 pageIndex=1
 ```
 
 2. 用冒号拼接并按ASCII顺序排序
-```languag
+```
 appId:123456
 deviceId:GTS0001
 nonstr:aaabbb
@@ -122,4 +124,3 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 ## 参考资料
 
 http://open.taobao.com/doc2/detail.htm?articleId=101617&docType=1&treeId=1
-
