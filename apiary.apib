@@ -1,8 +1,8 @@
 FORMAT: 1A
 HOST: http://gtsc.leanapp.cn/
 
-# gts-api
-光速达智能云
+# 光速达开放平台API
+光速达智能云开放平台API
 
 
 # 光速达智能云API接口使用说明
@@ -125,11 +125,10 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 
 ## 参考资料
 
-http://open.taobao.com/doc2/detail.htm?articleId=101617&docType=1&treeId=1
 
 ## 示例 [/gate/?appId={appId}&deviceId={deviceId}&timestamp={timestamp}&nonstr={nonstr}&pageSize={pageSize}&pageIndex={pageIndex}&sign={sign}]
 
-### 获取人闸记录 [GET]
+### 获取人闸记录（测试） [GET]
 
 获取人闸记录。
 
@@ -197,3 +196,72 @@ http://open.taobao.com/doc2/detail.htm?articleId=101617&docType=1&treeId=1
             "errMsg": "非法请求，签名内容未通过验证"
         }
 
+
+### 获取人闸记录 [POST]
+
+获取人闸记录。
+
++ Parameters
+    + timestamp (number) - 请求提交的当前时间时间戳
+    + nonstr (string) - 当前加密签名使用的随机字符串
+    + deviceId (string) - 设备对应的ID号
+    + sign (string) - 签名算法为MD5（signStr + secret）
+    + appId (string) - 第三方用户唯一凭证
+    + pageIndex (number) - 分页页数，从0开始
+    + pageSize (number) - 每页条数
+    + lastSyncDate (string) - 最后同步更新时间，如果不传获取所有的内容，日期格式必须是 `2011-08-20T02:06:57.931Z` 的 UTC 时间
+
++ Response 200 (application/json)
+
+        {
+            "total": 1502,
+            "count": 2,
+            "data": [{
+                "startTime": {
+                    "__type": "Date",
+                    "iso": "2016-04-30T16:00:00.000Z"
+                },
+                "deviceInfo": {
+                    "__type": "Pointer",
+                    "className": "GateInfo",
+                    "objectId": "5731cef41ea4930064fb8121"
+                },
+                "deviceId": "GTS0001",
+                "endTime": {
+                    "__type": "Date",
+                    "iso": "2017-01-31T16:00:00.000Z"
+                },
+                "mobileIdentification": "EO9EBF0MSHC1NJJDQFLFP9ANIX9HGAUB",
+                "mobile": "08081009592",
+                "objectId": "573acce90a1aa41f53bf1944",
+                "createdAt": "2016-05-17T07:48:57.375Z",
+                "updatedAt": "2016-05-17T07:48:57.375Z"
+            }, {
+                "startTime": {
+                    "__type": "Date",
+                    "iso": "2016-04-30T16:00:00.000Z"
+                },
+                "deviceInfo": {
+                    "__type": "Pointer",
+                    "className": "GateInfo",
+                    "objectId": "5731cef41ea4930064fb8121"
+                },
+                "deviceId": "GTS0001",
+                "endTime": {
+                    "__type": "Date",
+                    "iso": "2017-01-31T16:00:00.000Z"
+                },
+                "mobileIdentification": "80V XP1AA1UHHB3P TVMORLQ8BMD 0OX",
+                "mobile": "45316706237",
+                "objectId": "573acce90a1aa41f53bf1945",
+                "createdAt": "2016-05-17T07:48:57.384Z",
+                "updatedAt": "2016-05-17T07:48:57.384Z"
+            }]
+        }
+
++ Response 503 (application/json)
+
+        {
+            "errCode": 503,
+            "errMsg": "非法请求，签名内容未通过验证"
+        }
