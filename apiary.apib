@@ -4,16 +4,13 @@ HOST: http://gtsc.leanapp.cn/
 # 光速达开放平台API
 光速达智能云开放平台API
 
-
-# 光速达智能云API接口使用说明
-
 ## 概述
 本文档用于说明私有云调用光速达智能云接口方法，主要分三部分进行相关内容定义和介绍。
 - 第一部分概述，主要介绍本文档结构和主要内容。
 - 第二部分主要介绍光速达智能云HTTP连接请求和安全策略，对HTTP请求格式、应答格式、签名算法等做了详细介绍，并列举实例进行相关说明。
 - 第三部分主要介绍光速达智能云平台开放接口规范细则，从接口功能、定义和范例三方面对接口做了详细规定并给出使用范例。最后对有关专业用语做了名词解释，便于理解文档内容。
 
-### 开发者规范
+## 开发者规范
 开发者进行开发时，除了需要满足每个接口的规范限制、调用频率限制外，还需特别注意设备控制消息、用户数据等敏感信息的使用规范。
 
 涉及用户数据时：
@@ -33,14 +30,15 @@ HOST: http://gtsc.leanapp.cn/
 - 请勿公开表达或暗示，您与光速达之间存在合作关系，包括但不限于相互持股、商业往来或合作关系等，或声称光速达对您的认可。
 - 完整的开发者规范和接口限制，请详见开发者接口文档，以及光速达微信公众平台开发者协议。
 
-### 接口权限说明
+## 接口权限说明
 
-### 接口调用频率限制说明
+## 接口调用频率限制说明
 
-### 接口返回码说明
+## 接口返回码说明
 
 
 ## 光速达智能云HTTP连接请求和安全策略
+
 ### HTTP连接请求
 用户通过HTTP请求方式，从私有云调用光速达智能云开放接口，实现获取设备列表、查询报警信息、获取视频广场栏目和展示视频列表等功能。
 
@@ -51,6 +49,7 @@ HOST: http://gtsc.leanapp.cn/
 #### 服务端返回值定义
 
 ### HTTP连接安全策略
+
 #### 签名算法
 
 为了防止API调用过程中被黑客恶意篡改，调用任何一个API都需要携带签名，光速达智慧云服务端会根据请求参数，对签名进行验证，签名不合法的请求将会被拒绝。光速达智慧云目前支持的签名算法只支持MD5(sign_method=md5) ，签名大体过程如下：
@@ -109,37 +108,34 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 参数名与参数值拼装起来的URL长度小于1024个字符时，可以用GET发起请求；参数类型含byte[]类型或拼装好的请求URL过长时，必须用POST发起请求。所有API都可以用POST发起请求。
 生成签名（sign）仅对未使用TOP官方SDK进行API调用时需要操作，如使用了TOP官方SDK，该步骤SDK会自动完成。
 
-
-## 光速达智能云平台开放接口列表
-
-### 光速号API
-
-### 商城平台API
-
-### 智慧社区API
-
-### 智慧酒店API
-
-### 交易中心API
-
-
 ## 参考资料
 
+## Group 光速号API
 
-## 示例 [/gate/?appId={appId}&deviceId={deviceId}&timestamp={timestamp}&nonstr={nonstr}&pageSize={pageSize}&pageIndex={pageIndex}&sign={sign}]
+## Group 商城平台API
 
-### 获取人闸记录（测试） [GET]
+## Group 智慧社区API
 
-获取人闸记录。
+## Group 智慧酒店API
+
+## Group 交易中心API
+
+## Group 示例
+## 人闸记录（测试） [/gate/?appId={appId}&deviceId={deviceId}&timestamp={timestamp}&nonstr={nonstr}&pageSize={pageSize}&pageIndex={pageIndex}&sign={sign}&lastSyncDate={lastSyncDate}]
+
+### 获取人闸记录 [GET]
+
+使用GET请求获取人闸记录。
 
 + Parameters
-    + timestamp (number) - 请求提交的当前时间时间戳
-    + nonstr (string) - 当前加密签名使用的随机字符串
-    + deviceId (string) - 设备对应的ID号
-    + sign (string) - 签名算法为MD5（signStr + secret）
-    + appId (string) - 第三方用户唯一凭证
-    + pageIndex (number) - 分页页数
-    + pageSize (number) - 每页条数
+    + timestamp : `1463535207898` (number) - 请求提交的当前时间时间戳
+    + lastSyncDate : `2016-04-19T02:06:57.931Z` (string) - 最后同步更新时间，如果不传获取所有的内容，日期格式必须是 `2016-04-19T02:06:57.931Z` 的 UTC 时间
+    + nonstr : `aaabbb` (string) - 当前加密签名使用的随机字符串
+    + deviceId : `GTS0001` (string) - 设备对应的ID号
+    + sign : `0a20d32eda37038e2287ccf74b49e0f4` (string) - 签名算法为MD5（signStr + secret）
+    + appId : `123456` (string) - 第三方用户唯一凭证
+    + pageIndex : `0` (number) - 分页页数,从0开始
+    + pageSize : `20` (number) - 每页条数
 
 + Response 200 (application/json)
 
@@ -166,26 +162,6 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
                 "objectId": "573acce90a1aa41f53bf1944",
                 "createdAt": "2016-05-17T07:48:57.375Z",
                 "updatedAt": "2016-05-17T07:48:57.375Z"
-            }, {
-                "startTime": {
-                    "__type": "Date",
-                    "iso": "2016-04-30T16:00:00.000Z"
-                },
-                "deviceInfo": {
-                    "__type": "Pointer",
-                    "className": "GateInfo",
-                    "objectId": "5731cef41ea4930064fb8121"
-                },
-                "deviceId": "GTS0001",
-                "endTime": {
-                    "__type": "Date",
-                    "iso": "2017-01-31T16:00:00.000Z"
-                },
-                "mobileIdentification": "80V XP1AA1UHHB3P TVMORLQ8BMD 0OX",
-                "mobile": "45316706237",
-                "objectId": "573acce90a1aa41f53bf1945",
-                "createdAt": "2016-05-17T07:48:57.384Z",
-                "updatedAt": "2016-05-17T07:48:57.384Z"
             }]
         }
 
@@ -196,20 +172,22 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
             "errMsg": "非法请求，签名内容未通过验证"
         }
 
+### 获取人闸记录2 [POST]
 
-### 获取人闸记录 [POST]
+使用POST请求获取人闸记录。
 
-获取人闸记录。
++ Request (application/json)
 
-+ Parameters
-    + timestamp (number) - 请求提交的当前时间时间戳
-    + nonstr (string) - 当前加密签名使用的随机字符串
-    + deviceId (string) - 设备对应的ID号
-    + sign (string) - 签名算法为MD5（signStr + secret）
-    + appId (string) - 第三方用户唯一凭证
-    + pageIndex (number) - 分页页数，从0开始
-    + pageSize (number) - 每页条数
-    + lastSyncDate (string) - 最后同步更新时间，如果不传获取所有的内容，日期格式必须是 `2011-08-20T02:06:57.931Z` 的 UTC 时间
+        {
+            "sign": "0a20d32eda37038e2287ccf74b49e0f4",
+            "timestamp": 1463535207898,
+            "lastSyncDate": "2016-04-19T02:06:57.931Z",
+            "appId": "123456",
+            "nonstr": "aaabbb",
+            "pageSize": 20,
+            "deviceId": "GTS0001",
+            "pageIndex": 0
+        }
 
 + Response 200 (application/json)
 
@@ -236,26 +214,6 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
                 "objectId": "573acce90a1aa41f53bf1944",
                 "createdAt": "2016-05-17T07:48:57.375Z",
                 "updatedAt": "2016-05-17T07:48:57.375Z"
-            }, {
-                "startTime": {
-                    "__type": "Date",
-                    "iso": "2016-04-30T16:00:00.000Z"
-                },
-                "deviceInfo": {
-                    "__type": "Pointer",
-                    "className": "GateInfo",
-                    "objectId": "5731cef41ea4930064fb8121"
-                },
-                "deviceId": "GTS0001",
-                "endTime": {
-                    "__type": "Date",
-                    "iso": "2017-01-31T16:00:00.000Z"
-                },
-                "mobileIdentification": "80V XP1AA1UHHB3P TVMORLQ8BMD 0OX",
-                "mobile": "45316706237",
-                "objectId": "573acce90a1aa41f53bf1945",
-                "createdAt": "2016-05-17T07:48:57.384Z",
-                "updatedAt": "2016-05-17T07:48:57.384Z"
             }]
         }
 
@@ -265,3 +223,4 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
             "errCode": 503,
             "errMsg": "非法请求，签名内容未通过验证"
         }
+
