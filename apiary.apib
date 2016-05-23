@@ -64,7 +64,6 @@ HOST: http://gtsc.leanapp.cn/
    "deviceId":"GTS0001" ,
    "pageSize":1
 }
-
 ```
 | 参数名称 | 数据类型|描述|
 |--------|--------|------|---|
@@ -150,6 +149,85 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 ## Group 商城平台API
 
 ## Group 智慧社区API
+### 反馈记录确认 [POST]
+物业确认用户提交的反馈记录。
+方法名:confirmFeedBack
+
++ Request (application/json)
+
+    {
+        id:"5729ba9d2627f3053620c31b"
+    }
+
++ Response 200 (application/json)
+
+    {
+        "result": {
+            "NH_ID": 350104080033,
+            "CONFIRM_TIME": "2016-5-23 10:34:6",
+            "_ApplicationProduction": 0,
+            "IS_DEL": 1,
+            "USER_ID": 32,
+            "CONFIRMED": 1,
+            "DATA_ORDER": 0,
+            "TYPE": 1,
+            "CONTENT": "111111",
+            "SEQ_ID": 47,
+            "PROPERTY_ID": 1000,
+            "PICTURE": "/fileser/image/Y2Q1MTY1ZGUtMTBiZS00N2Y1LWE2NjEtZGVlMzQyY2E4MGQ0gRfugQ",
+            "reply": "这是测试回复！",
+            "objectId": "5729ba9d2627f3053620c31b",
+            "createdAt": "2016-05-04T09:02:21.683Z",
+            "updatedAt": "2016-05-23T02:34:07.166Z"
+        }
+    }
+
++ Response 503 (application/json)
+
+        {
+            "errCode": 503,
+            "errMsg": "非法请求，签名内容未通过验证"
+        }
+        
+### 回复用户反馈 [POST]
+方法名：reply
+对用户的反馈进行回复
++ Request (application/json)
+
+    {
+       id:"5729ba9d2627f3053620c31b",
+       reply:"这是测试回复！"
+    }
+
++ Response 200 (application/json)
+
+    {
+        "result": {
+            "NH_ID": 350104080033,
+            "CONFIRM_TIME": "2016-5-23 10:34:6",
+            "_ApplicationProduction": 0,
+            "IS_DEL": 1,
+            "USER_ID": 32,
+            "CONFIRMED": 1,
+            "DATA_ORDER": 0,
+            "TYPE": 1,
+            "CONTENT": "111111",
+            "SEQ_ID": 47,
+            "PROPERTY_ID": 1000,
+            "PICTURE": "/fileser/image/Y2Q1MTY1ZGUtMTBiZS00N2Y1LWE2NjEtZGVlMzQyY2E4MGQ0gRfugQ",
+            "reply": "这是测试回复！",
+            "objectId": "5729ba9d2627f3053620c31b",
+            "createdAt": "2016-05-04T09:02:21.683Z",
+            "updatedAt": "2016-05-23T02:34:07.166Z"
+        }
+    }
+
++ Response 503 (application/json)
+
+        {
+            "errCode": 503,
+            "errMsg": "非法请求，签名内容未通过验证"
+        }
 
 ## Group 智慧酒店API
 
