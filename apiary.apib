@@ -150,6 +150,70 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 
 ## Group 智慧社区API
 
+## 订单操作 [/1.1/function/createOrder]   
+
+### 商城下单 [POST]
+
+用户下单接口
+
++ Parameters
+    + orderNo : `335566` (string) - 订单编号
+    + seller : `5742a9da79bc44005cab2841` (string) - 商品提供者ObjectId
+    + payType : `1` (string) - 支付方式 1、支付宝 2、微信 3、货到付款
+    + reduceCost : `10` (number) - 优惠金额
+    + orderAt : `2016-05-24 14:00:00` (string) - 下单时间
+    + payAt : `2016-05-24 14:02:00` (string) - 支付时间
+    + receiveAddress : `测试地址` (string) - 收获地址
+    + userCouponId : `5743eb17a3413100625d7081` (string) - 订单编号
+    + items : `[{}]` (array) - 订单编号
+
++ Request (application/json)
+
+    {
+    orderNo:"335566",
+    seller:"5742a9da79bc44005cab2841",
+    payType:1,
+    reduceCost:10,
+    orderAt:"2016-05-24 14:00:00",
+    payAt :"2016-05-24 14:02:00",
+    receiveAddress:"测试地址",
+    userCouponId:"5743eb17a3413100625d7081",
+    items:[{
+        goodId:"573c1e17f38c8400674cb65e",
+        quantity:3,
+        price:1,
+        orderNo:"335566"
+    },{
+        goodId:"573c1d0c71cfe448aa89c507",
+        quantity:5,
+        price:3,
+        orderNo:"335566"
+    }]
+}
+
++ Response 200 (application/json)
+
+    {
+    "result": {
+            "orderNo": "335566",
+            "buyer": "56ecbc32da2f60004c887c88",
+            "seller": "5742a9da79bc44005cab2841",
+            "payType": 1,
+            "total": null,
+            "reduceCost": 10,
+            "orderAt": "2016-05-24 14:00:00",
+            "payAt": "2016-05-24 14:02:00",
+            "transportCost": 0,
+            "receiveAddress": "测试地址",
+            "userCouponId": "5743eb17a3413100625d7081",
+            "remark": "",
+            "objectId": "57441403c26a38006b89a387",
+            "createdAt": "2016-05-24T08:42:43.760Z",
+            "updatedAt": "2016-05-24T08:42:43.760Z"
+        }
+    }
+    
+
 ## 确认反馈记录 [/confirmFeedBack]
 
 ### 反馈记录确认 [POST]
