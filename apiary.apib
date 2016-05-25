@@ -254,12 +254,29 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
         }
     }
 
-+ Response 503 (application/json)
++ Response 400 (application/json)
 
-        {
-            "errCode": 503,
-            "errMsg": "非法请求，签名内容未通过验证"
-        }
+ {
+    "code": -1,
+    "msg": "数据已失效！",
+    "result": {
+        "NH_ID": 350102030039,
+        "_ApplicationProduction": 0,
+        "IS_DEL": 1,
+        "USER_ID": 7,
+        "DATA_ORDER": 0,
+        "TYPE": 1,
+        "CONTENT": "秃头",
+        "SEQ_ID": 49,
+        "PICTURE": "/fileser/image/ZjdhNWNjZGUtODM5Zi00NTczLTgwZWMtNThkODZhNjg2MDFjBYOcEw",
+        "reply": "测试评论",
+        "CONFIRMED": 1,
+        "CONFIRM_TIME": "2016-5-25 10:24:18",
+        "objectId": "5729ba9d2627f3053620c31d",
+        "createdAt": "2016-05-04T09:02:21.702Z",
+        "updatedAt": "2016-05-25T02:02:59.441Z"
+    }
+}
 
 ## 回复反馈记录 [/property/reply]
 
@@ -302,12 +319,29 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
         }
     }
 
-+ Response 503 (application/json)
++ Response 400 (application/json)
 
-        {
-            "errCode": 503,
-            "errMsg": "非法请求，签名内容未通过验证"
-        }
+{
+    "code": -1,
+    "msg": "数据已失效！",
+    "result": {
+        "NH_ID": 350102030039,
+        "_ApplicationProduction": 0,
+        "IS_DEL": 1,
+        "USER_ID": 7,
+        "DATA_ORDER": 0,
+        "TYPE": 1,
+        "CONTENT": "秃头",
+        "SEQ_ID": 49,
+        "PICTURE": "/fileser/image/ZjdhNWNjZGUtODM5Zi00NTczLTgwZWMtNThkODZhNjg2MDFjBYOcEw",
+        "reply": "测试评论",
+        "CONFIRMED": 1,
+        "CONFIRM_TIME": "2016-5-25 10:24:18",
+        "objectId": "5729ba9d2627f3053620c31d",
+        "createdAt": "2016-05-04T09:02:21.702Z",
+        "updatedAt": "2016-05-25T02:02:59.441Z"
+    }
+}
 
 ## Group 智慧酒店API
 
