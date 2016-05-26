@@ -272,6 +272,36 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
      }
 }
     
+    
+## 用户发布投诉表扬 [/1.1/function/addFeedBack]
+
+### 用户发布投诉表扬 [POST]
+
+方法名:addFeedBack
+
++ Request (application/json)
+
+    {
+        content:"楼下装修声音太大，很吵！",
+      	nhNo:"572994182627f3053620b356",
+      	picture : "http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//NjI0M2QxYjctZmRiMC00NWRmLTg5NTktMTY3MDRhZDE4M2UzcB1ICw.jpg,http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//Y2Q4MDIwNzgtZjQ0Yy00MTgxLWEyMTQtOTdiMzBiOWY2MDk3Elbjfw.jpg",
+      	propertyId:"5742a9da79bc44005cab2841",
+      	type:1
+   }
+
++ Response 200 (application/json)
+
+    {
+      "result": {
+          "objectId": "57465c7b2e958a002daba825",
+          "userId": "56ecbc32da2f60004c887c88",
+          "type": 1,
+          "content": "楼下装修声音太大，很吵！",
+          "picture": "http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//NjI0M2QxYjctZmRiMC00NWRmLTg5NTktMTY3MDRhZDE4M2UzcB1ICw.jpg,http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//Y2Q4MDIwNzgtZjQ0Yy00MTgxLWEyMTQtOTdiMzBiOWY2MDk3Elbjfw.jpg",
+          "updateAt": "2016-05-26T02:16:27.693Z"
+      }
+   }
+
 
 ## 确认反馈记录 [/property/confirmFeedBack]
 
