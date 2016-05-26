@@ -453,12 +453,11 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 ## Group 交易中心API
 
 ## Group 示例
-## 人闸记录（测试） [/gate/?appId={appId}&deviceId={deviceId}&timestamp={timestamp}&nonstr={nonstr}&pageSize={pageSize}&pageIndex={pageIndex}&sign={sign}&lastSyncDate={lastSyncDate}]
+## 人闸记录 [/gate/?appId={appId}&deviceId={deviceId}&timestamp={timestamp}&nonstr={nonstr}&pageSize={pageSize}&pageIndex={pageIndex}&sign={sign}&lastSyncDate={lastSyncDate}]
 
 ### 获取人闸记录 [GET]
 
 使用GET请求获取人闸记录。
-
 
 
 + Parameters
@@ -474,30 +473,35 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 + Response 200 (application/json)
 
         {
-            "total": 1502,
-            "count": 2,
-            "data": [{
-                "startTime": {
-                    "__type": "Date",
-                    "iso": "2016-04-30T16:00:00.000Z"
-                },
-                "deviceInfo": {
-                    "__type": "Pointer",
-                    "className": "GateInfo",
-                    "objectId": "5731cef41ea4930064fb8121"
-                },
-                "deviceId": "GTS0001",
-                "endTime": {
-                    "__type": "Date",
-                    "iso": "2017-01-31T16:00:00.000Z"
-                },
-                "mobileIdentification": "EO9EBF0MSHC1NJJDQFLFP9ANIX9HGAUB",
-                "mobile": "08081009592",
-                "objectId": "573acce90a1aa41f53bf1944",
-                "createdAt": "2016-05-17T07:48:57.375Z",
-                "updatedAt": "2016-05-17T07:48:57.375Z"
-            }]
-        }
+	    "total": 6,
+	    "count": 2,
+	    "data": [
+		{
+		    "startTime": "2016-05-10T16:00:00.000Z",
+		    "endTime": "2016-12-31T16:00:00.000Z",
+		    "mId": "12354abdd",
+		    "mobile": "18905029911",
+		    "deviceId": "GTS0001",
+		    "createdAt": "2016-05-26T11:44:08.509Z",
+		    "updatedAt": "2016-05-26T11:45:04.861Z",
+		    "gtsNo": "1212",
+		    "communityCode": "3501240001",
+		    "communityName": "光速达体验社区"
+		},
+		{
+		    "startTime": "2016-05-26T11:43:40.368Z",
+		    "endTime": "2016-06-06T18:40:53.000Z",
+		    "mId": "/5l7xT8jOkrp2WfmiiIujDk5ODQ0MjMxMDd4Y3ZZT0Q=ecosAmJsIYcE2GWOFwpXxjBFSlhadmlHNWl6RHJlSU8=",
+		    "mobile": "18950333962",
+		    "deviceId": "GTS0001",
+		    "createdAt": "2016-05-26T11:43:42.421Z",
+		    "updatedAt": "2016-05-26T11:45:33.639Z",
+		    "gtsNo": "12313123",
+		    "communityCode": "3501240001",
+		    "communityName": ""
+		}
+	    ]
+	}
 
 + Response 503 (application/json)
 
@@ -506,7 +510,7 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
             "errMsg": "非法请求，签名内容未通过验证"
         }
 
-### 获取人闸记录2 [POST]
+### 获取人闸记录(建议使用） [POST]
 
 使用POST请求获取人闸记录。
 
@@ -514,13 +518,14 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 
 | 参数名称 | 数据类型|描述|
 |--------|--------|------|---|
-|  startTime  |date| 生效时间|
-|  endTime |date| 截止时间|
-|  mobileIdentification |string| 手机串号|
+|  startTime  |string| 生效时间|
+|  endTime |string| 截止时间|
+|  mId |string| 手机串号|
 |  mobile |string| 用户手机号|
 |  gtsno  |string| 光速号（可能为空） |
 |  deviceId  |string| 道闸设备编码 |
 |  communityCode | string| 所在小区编码 |
+|  communityName | string| 所在小区名称 |
 |  createdAt | string| 创建时间 |
 |  updatedAt |string| 最近更新时间 |
 
@@ -551,30 +556,35 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 + Response 200 (application/json)
 
         {
-            "total": 1502,
-            "count": 2,
-            "data": [{
-                "startTime": {
-                    "__type": "Date",
-                    "iso": "2016-04-30T16:00:00.000Z"
-                },
-                "deviceInfo": {
-                    "__type": "Pointer",
-                    "className": "GateInfo",
-                    "objectId": "5731cef41ea4930064fb8121"
-                },
-                "deviceId": "GTS0001",
-                "endTime": {
-                    "__type": "Date",
-                    "iso": "2017-01-31T16:00:00.000Z"
-                },
-                "mobileIdentification": "EO9EBF0MSHC1NJJDQFLFP9ANIX9HGAUB",
-                "mobile": "08081009592",
-                "objectId": "573acce90a1aa41f53bf1944",
-                "createdAt": "2016-05-17T07:48:57.375Z",
-                "updatedAt": "2016-05-17T07:48:57.375Z"
-            }]
-        }
+	    "total": 6,
+	    "count": 2,
+	    "data": [
+		{
+		    "startTime": "2016-05-10T16:00:00.000Z",
+		    "endTime": "2016-12-31T16:00:00.000Z",
+		    "mId": "12354abdd",
+		    "mobile": "18905029911",
+		    "deviceId": "GTS0001",
+		    "createdAt": "2016-05-26T11:44:08.509Z",
+		    "updatedAt": "2016-05-26T11:45:04.861Z",
+		    "gtsNo": "1212",
+		    "communityCode": "3501240001",
+		    "communityName": "光速达体验社区"
+		},
+		{
+		    "startTime": "2016-05-26T11:43:40.368Z",
+		    "endTime": "2016-06-06T18:40:53.000Z",
+		    "mId": "/5l7xT8jOkrp2WfmiiIujDk5ODQ0MjMxMDd4Y3ZZT0Q=ecosAmJsIYcE2GWOFwpXxjBFSlhadmlHNWl6RHJlSU8=",
+		    "mobile": "18950333962",
+		    "deviceId": "GTS0001",
+		    "createdAt": "2016-05-26T11:43:42.421Z",
+		    "updatedAt": "2016-05-26T11:45:33.639Z",
+		    "gtsNo": "12313123",
+		    "communityCode": "3501240001",
+		    "communityName": ""
+		}
+	    ]
+	}
 
 + Response 503 (application/json)
 
