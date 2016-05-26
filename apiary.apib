@@ -150,7 +150,7 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 
 ## Group 智慧社区API
 
-## 购物车下单 [/1.1/function/createOrder]   
+## 购物车下单 [/1.1/function/createOrder]
 
 ### 从购物车下单 [POST]
 
@@ -215,7 +215,7 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
      }
 }
 
-## 商品直接购买 [/1.1/function/buyNow]   
+## 商品直接购买 [/1.1/function/buyNow]
 
 ### 商品直接购买 [POST]
 
@@ -271,8 +271,8 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
        "updatedAt": "2016-05-25T09:11:13.925Z"
      }
 }
-    
-    
+
+
 ## 用户发布投诉表扬 [/1.1/function/addFeedBack]
 
 ### 用户发布投诉表扬 [POST]
@@ -459,6 +459,8 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 
 使用GET请求获取人闸记录。
 
+
+
 + Parameters
     + timestamp : `1463535207898` (number) - 请求提交的当前时间时间戳
     + lastSyncDate : `2016-04-19T02:06:57.931Z` (string) - 最后同步更新时间，如果不传获取所有的内容，日期格式必须是 `2016-04-19T02:06:57.931Z` 的 UTC 时间
@@ -507,6 +509,30 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 ### 获取人闸记录2 [POST]
 
 使用POST请求获取人闸记录。
+
+返回值解释：
+
+| 参数名称 | 数据类型|描述|
+|--------|--------|------|---|
+|  startTime  |date| 生效时间|
+|  endTime |date| 截止时间|
+|  mobileIdentification |string| 手机串号|
+|  mobile |string| 用户手机号|
+|  gtsno  |string| 光速号（可能为空） |
+|  deviceId  |string| 道闸设备编码 |
+|  createdAt | string| 创建时间 |
+|  updatedAt |string| 最近更新时间 |
+
+
++ Parameters
+    + timestamp : `1463535207898` (number) - 请求提交的当前时间时间戳
+    + lastSyncDate : `2016-04-19T02:06:57.931Z` (string) - 最后同步更新时间，如果不传获取所有的内容，日期格式必须是 `2016-04-19T02:06:57.931Z` 的 UTC 时间
+    + nonstr : `aaabbb` (string) - 当前加密签名使用的随机字符串
+    + deviceId : `GTS0001` (string) - 设备对应的ID号
+    + sign : `0a20d32eda37038e2287ccf74b49e0f4` (string) - 签名算法为MD5（signStr + secret）
+    + appId : `123456` (string) - 第三方用户唯一凭证
+    + pageIndex : `0` (number) - 分页页数,从0开始
+    + pageSize : `20` (number) - 每页条数
 
 + Request (application/json)
 
