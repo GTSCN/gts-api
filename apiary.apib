@@ -150,9 +150,9 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 
 ## Group 智慧社区API
 
-## 购物车下单 [/1.1/function/createOrder]
+## 下单 [/1.1/function/createOrderForTrolley]
 
-### 从购物车下单 [POST]
+### 下单接口 [POST]
 
 用户下单接口
 
@@ -165,32 +165,22 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
     + payAt : `2016-05-24 14:02:00` (string) - 支付时间
     + receiveAddress : `测试地址` (string) - 收获地址
     + userCouponId : `5743eb17a3413100625d7081` (string) - 订单编号
-    + items : `[{}]` (array) - 订单商品项集合
+    + trolleyIds : `[]` (array) - 购物车项数组
+    + goodsId:'573c1ddf49830c00611a8369' (string) - 商品ID
+    + quantity:3 (number) - 商品数量
 
 + Request (application/json)
 
    {
-      orderNo:"335566",
-      seller:"5742a9da79bc44005cab2841",
-      payType:1,
-      reduceCost:10,
-      orderAt:"2016-05-24 14:00:00",
-      payAt :"2016-05-24 14:02:00",
-      receiveAddress:"测试地址",
-      userCouponId:"5743eb17a3413100625d7081",
-      items:[{
-          trolleyId:"574565f22b51e900697ac1de",
-          goodId:"573c1d0749830c00611a7a94",
-          quantity:3,
-          price:1,
-          orderNo:"335566"
-      },{
-           trolleyId:"5742d05c1532bc0065a56e5e",
-          goodId:"573c1a9adf0eea005e7a0ac5",
-          quantity:8,
-          price:356,
-          orderNo:"335566"
-      }]
+	  orderNo:"335566",
+	  seller:"5742a9da79bc44005cab2841",
+	  payType:1,
+	  reduceCost:10,
+	  orderAt:"2016-05-24 14:00:00",
+	  payAt :"2016-05-24 14:02:00",
+	  receiveAddress:"测试地址",
+	  userCouponId:"5743eb17a3413100625d7081",
+	  trolleyIds:["5747f54c1532bc0065965d0e", "574421b82e958a006b6fd86d"]
    }
 
 + Response 200 (application/json)
