@@ -147,10 +147,60 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 
 ## 道闸通行记录 [/gate/?appId={appId}&deviceId={deviceId}&timestamp={timestamp}&nonstr={nonstr}&pageSize={pageSize}&pageIndex={pageIndex}&sign={sign}&lastSyncDate={lastSyncDate}]
 
+### 获取道闸通行用户数据 [GET]
 
-### 获取道闸通行记录(建议使用） [POST]
+使用GET请求获取道闸通行用户数据。
 
-使用POST请求获取道闸通行记录。
++ Parameters
+    + timestamp : `1463535207898` (number) - 请求提交的当前时间时间戳
+    + lastSyncDate : `2016-04-19T02:06:57.931Z` (string) - 最后同步更新时间，如果不传获取所有的内容，日期格式必须是 `2016-04-19T02:06:57.931Z` 的 UTC 时间
+    + nonstr : `aaabbb` (string) - 当前加密签名使用的随机字符串
+    + deviceId : `GTS0001` (string) - 设备对应的ID号
+    + sign : `0a20d32eda37038e2287ccf74b49e0f4` (string) - 签名算法为MD5（signStr + secret）
+    + appId : `123456` (string) - 第三方用户唯一凭证
+    + pageIndex : `0` (number) - 分页页数,从0开始
+    + pageSize : `20` (number) - 每页条数
+
++ Response 200 (application/json)
+
+        {
+            "total": 6,
+            "count": 2,
+            "data": [{
+                "startTime": "2016-05-10T16:00:00.000Z",
+                "endTime": "2016-12-31T16:00:00.000Z",
+                "mId": "12354abdd",
+                "mobile": "18905029911",
+                "deviceId": "GTS0001",
+                "createdAt": "2016-05-26T11:44:08.509Z",
+                "updatedAt": "2016-05-26T11:45:04.861Z",
+                "gtsNo": "1212",
+                "communityCode": "3501240001",
+                "communityName": "光速达体验社区"
+            }, {
+                "startTime": "2016-05-26T11:43:40.368Z",
+                "endTime": "2016-06-06T18:40:53.000Z",
+                "mId": "/5l7xT8jOkrp2WfmiiIujDk5ODQ0MjMxMDd4Y3ZZT0Q=ecosAmJsIYcE2GWOFwpXxjBFSlhadmlHNWl6RHJlSU8=",
+                "mobile": "18950333962",
+                "deviceId": "GTS0001",
+                "createdAt": "2016-05-26T11:43:42.421Z",
+                "updatedAt": "2016-05-26T11:45:33.639Z",
+                "gtsNo": "12313123",
+                "communityCode": "3501240001",
+                "communityName": ""
+            }]
+        }
+
++ Response 503 (application/json)
+
+        {
+            "errCode": 503,
+            "errMsg": "非法请求，签名内容未通过验证"
+        }
+
+### 获取道闸通行记录（建议使用） [POST]
+
+使用POST请求获取道闸通行用户数据。
 
 返回值解释：
 
@@ -167,7 +217,6 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 |  createdAt | string| 创建时间 |
 |  isDel | number| 是否删除 0-正常  1- 删除 |
 |  updatedAt |string| 最近更新时间 |
-
 
 + Parameters
     + timestamp : `1463535207898` (number) - 请求提交的当前时间时间戳
@@ -229,7 +278,6 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
             "errMsg": "非法请求，签名内容未通过验证"
         }
 
-
 ## Group 光速号API
 
 ## Group 商城平台API
@@ -242,54 +290,42 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 
 用户下单接口
 
-+ Parameters
-        + orderNo : `335566` (string) - 订单编号
-        + seller : `5742a9da79bc44005cab2841` (string) - 商品提供者ObjectId
-        + payType : `1` (string) - 支付方式 1、支付宝 2、微信 3、货到付款
-        + reduceCost : `10` (number) - 优惠金额
-        + orderAt : `2016-05-24 14:00:00` (string) - 下单时间
-        + payAt : `2016-05-24 14:02:00` (string) - 支付时间
-        + receiveAddress : `测试地址` (string) - 收获地址
-        + userCouponId : `5743eb17a3413100625d7081` (string) - 订单编号
-        + trolleyIds : `[]` (array) - 购物车项数组
-        + goodsId:'573c1ddf49830c00611a8369' (string) - 商品ID
-        + quantity:3 (number) - 商品数量
-
 + Request (application/json)
 
-           {
-                "orderNo":"335566",
-                "seller":"5742a9da79bc44005cab2841",
-                "payType":1,
-                "reduceCost":10,
-                "orderAt":"2016-05-24 14:00:00",
-                "payAt":"2016-05-24 14:02:00",
-                "receiveAddress":"测试地址",
-                "userCouponId":"5743eb17a3413100625d7081",
-                "trolleyIds":["5747f54c1532bc0065965d0e", "574421b82e958a006b6fd86d"]
-           }
+        {
+            "orderNo":"335566",
+            "seller":"5742a9da79bc44005cab2841",
+            "payType":1,
+            "reduceCost":10,
+            "orderAt":"2016-05-24 14:00:00",
+            "payAt":"2016-05-24 14:02:00",
+            "receiveAddress":"测试地址",
+            "userCouponId":"5743eb17a3413100625d7081",
+            "trolleyIds":["5747f54c1532bc0065965d0e", "574421b82e958a006b6fd86d"]
+        }
 
 + Response 200 (application/json)
-            
+
+        {
+            "result":
             {
-                "result": {
-                    "orderNo": "335566",
-                    "buyer": "5742a9da79bc44005cab2841",
-                    "seller": "5742a9da79bc44005cab2841",
-                    "payType": 1,
-                    "total": -9,
-                    "reduceCost": 10,
-                    "orderAt": "2016-05-24 14:00:00",
-                    "payAt": "2016-05-24 14:02:00",
-                    "transportCost": 0,
-                    "receiveAddress": "测试地址",
-                    "userCouponId": "5743eb17a3413100625d7081",
-                    "remark": "",
-                    "objectId": "57456c3171cfe4006bb8399f",
-                    "createdAt": "2016-05-25T09:11:13.925Z",
-                    "updatedAt": "2016-05-25T09:11:13.925Z"
-                }
+                "orderNo": "335566",
+                "buyer": "5742a9da79bc44005cab2841",
+                "seller": "5742a9da79bc44005cab2841",
+                "payType": 1,
+                "total": -9,
+                "reduceCost": 10,
+                "orderAt": "2016-05-24 14:00:00",
+                "payAt": "2016-05-24 14:02:00",
+                "transportCost": 0,
+                "receiveAddress": "测试地址",
+                "userCouponId": "5743eb17a3413100625d7081",
+                "remark": "",
+                "objectId": "57456c3171cfe4006bb8399f",
+                "createdAt": "2016-05-25T09:11:13.925Z",
+                "updatedAt": "2016-05-25T09:11:13.925Z"
             }
+        }
 
 ## 用户发布投诉表扬 [/1.1/function/addFeedBack]
 
@@ -298,27 +334,27 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 方法名:addFeedBack
 
 + Request (application/json)
-    
-    {
-        "content": "楼下装修声音太大，很吵！",
-        "nhNo": "572994182627f3053620b356",
-        "picture": "http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//NjI0M2QxYjctZmRiMC00NWRmLTg5NTktMTY3MDRhZDE4M2UzcB1ICw.jpg,http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//Y2Q4MDIwNzgtZjQ0Yy00MTgxLWEyMTQtOTdiMzBiOWY2MDk3Elbjfw.jpg",
-        "propertyId": "5742a9da79bc44005cab2841",
-        "type": 1
-    }
+
+        {
+            "content": "楼下装修声音太大，很吵！",
+            "nhNo": "572994182627f3053620b356",
+            "picture": "http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//NjI0M2QxYjctZmRiMC00NWRmLTg5NTktMTY3MDRhZDE4M2UzcB1ICw.jpg,http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//Y2Q4MDIwNzgtZjQ0Yy00MTgxLWEyMTQtOTdiMzBiOWY2MDk3Elbjfw.jpg",
+            "propertyId": "5742a9da79bc44005cab2841",
+            "type": 1
+        }
 
 + Response 200 (application/json)
 
-    {
-        "result": {
-            "objectId": "57465c7b2e958a002daba825",
-            "userId": "56ecbc32da2f60004c887c88",
-            "type": 1,
-            "content": "楼下装修声音太大，很吵！",
-            "picture": "http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//NjI0M2QxYjctZmRiMC00NWRmLTg5NTktMTY3MDRhZDE4M2UzcB1ICw.jpg,http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//Y2Q4MDIwNzgtZjQ0Yy00MTgxLWEyMTQtOTdiMzBiOWY2MDk3Elbjfw.jpg",
-            "updateAt": "2016-05-26T02:16:27.693Z"
+        {
+            "result": {
+                "objectId": "57465c7b2e958a002daba825",
+                "userId": "56ecbc32da2f60004c887c88",
+                "type": 1,
+                "content": "楼下装修声音太大，很吵！",
+                "picture": "http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//NjI0M2QxYjctZmRiMC00NWRmLTg5NTktMTY3MDRhZDE4M2UzcB1ICw.jpg,http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//Y2Q4MDIwNzgtZjQ0Yy00MTgxLWEyMTQtOTdiMzBiOWY2MDk3Elbjfw.jpg",
+                "updateAt": "2016-05-26T02:16:27.693Z"
+            }
         }
-    }
 
 
 ## 确认反馈记录 [/property/confirmFeedBack]
@@ -331,44 +367,44 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 
 + Request (application/json)
 
-    {
-        "id":"5729ba9d2627f3053620c31b",
-        "lastSyncDate":"2016-05-24T10:03:13.514Z",
-        "sign":"",
-        "appId":""
-    }
+        {
+            "id":"5729ba9d2627f3053620c31b",
+            "lastSyncDate":"2016-05-24T10:03:13.514Z",
+            "sign":"",
+            "appId":""
+        }
 
 + Response 200 (application/json)
 
-    {
-    "result": {
-       "objectId": "574519e1c4c971002345eb25",
-       "userId": "5742762979bc44005ca9bb3e",
-       "userName": "李大塆",
-       "type": 1,
-       "content": "发现自行车丢了找物业，发现原来是忘记锁了物业把它放到安全的地方去了，这点做的很好",
-       "picture": "http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//NjI0M2QxYjctZmRiMC00NWRmLTg5NTktMTY3MDRhZDE4M2UzcB1ICw.jpg,http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//Y2Q4MDIwNzgtZjQ0Yy00MTgxLWEyMTQtOTdiMzBiOWY2MDk3Elbjfw.jpg",
-       "confirmed": 1,
-       "reply": ""
-      }
-    }
+        {
+            "result": {
+                "objectId": "574519e1c4c971002345eb25",
+                "userId": "5742762979bc44005ca9bb3e",
+                "userName": "李大塆",
+                "type": 1,
+                "content": "发现自行车丢了找物业，发现原来是忘记锁了物业把它放到安全的地方去了，这点做的很好",
+                "picture": "http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//NjI0M2QxYjctZmRiMC00NWRmLTg5NTktMTY3MDRhZDE4M2UzcB1ICw.jpg,http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//Y2Q4MDIwNzgtZjQ0Yy00MTgxLWEyMTQtOTdiMzBiOWY2MDk3Elbjfw.jpg",
+                "confirmed": 1,
+                "reply": ""
+            }
+        }
 
 + Response 500 (application/json)
 
- {
-    "code": 305,
-    "msg": "时间戳标签不一致！",
-    "result": {
-        "objectId": "574519e1c4c971002345eb25",
-        "userId": "5742762979bc44005ca9bb3e",
-        "userName": "李大塆",
-        "type": 1,
-        "content": "发现自行车丢了找物业，发现原来是忘记锁了物业把它放到安全的地方去了，这点做的很好",
-        "picture": "http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//NjI0M2QxYjctZmRiMC00NWRmLTg5NTktMTY3MDRhZDE4M2UzcB1ICw.jpg,http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//Y2Q4MDIwNzgtZjQ0Yy00MTgxLWEyMTQtOTdiMzBiOWY2MDk3Elbjfw.jpg",
-        "confirmed": 1,
-        "reply": ""
-    }
-}
+        {
+            "code": 305,
+            "msg": "时间戳标签不一致！",
+            "result": {
+                "objectId": "574519e1c4c971002345eb25",
+                "userId": "5742762979bc44005ca9bb3e",
+                "userName": "李大塆",
+                "type": 1,
+                "content": "发现自行车丢了找物业，发现原来是忘记锁了物业把它放到安全的地方去了，这点做的很好",
+                "picture": "http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//NjI0M2QxYjctZmRiMC00NWRmLTg5NTktMTY3MDRhZDE4M2UzcB1ICw.jpg,http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//Y2Q4MDIwNzgtZjQ0Yy00MTgxLWEyMTQtOTdiMzBiOWY2MDk3Elbjfw.jpg",
+                "confirmed": 1,
+                "reply": ""
+            }
+        }
 
 ## 回复反馈记录 [/property/reply]
 
@@ -380,45 +416,45 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 
 + Request (application/json)
 
-    {
-        "id":"5729ba9d2627f3053620c31b",
-        "reply":"这是测试回复！",
-        "lastSyncDate":"2016-05-24T10:03:13.514Z",
-        "sign":"",
-        "appId":""
-    }
+        {
+            "id":"5729ba9d2627f3053620c31b",
+            "reply":"这是测试回复！",
+            "lastSyncDate":"2016-05-24T10:03:13.514Z",
+            "sign":"",
+            "appId":""
+        }
 
 + Response 200 (application/json)
 
-    {
-    "result": {
-         "objectId": "574519e1c4c971002345eb25",
-         "userId": "5742762979bc44005ca9bb3e",
-         "userName": "李大塆",
-         "type": 1,
-         "content": "发现自行车丢了找物业，发现原来是忘记锁了物业把它放到安全的地方去了，这点做的很好",
-         "picture": "http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//NjI0M2QxYjctZmRiMC00NWRmLTg5NTktMTY3MDRhZDE4M2UzcB1ICw.jpg,http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//Y2Q4MDIwNzgtZjQ0Yy00MTgxLWEyMTQtOTdiMzBiOWY2MDk3Elbjfw.jpg",
-         "confirmed": 1,
-         "reply": "这是测试回复！"
-     }
-    }
+        {
+            "result": {
+                "objectId": "574519e1c4c971002345eb25",
+                "userId": "5742762979bc44005ca9bb3e",
+                "userName": "李大塆",
+                "type": 1,
+                "content": "发现自行车丢了找物业，发现原来是忘记锁了物业把它放到安全的地方去了，这点做的很好",
+                "picture": "http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//NjI0M2QxYjctZmRiMC00NWRmLTg5NTktMTY3MDRhZDE4M2UzcB1ICw.jpg,http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//Y2Q4MDIwNzgtZjQ0Yy00MTgxLWEyMTQtOTdiMzBiOWY2MDk3Elbjfw.jpg",
+                "confirmed": 1,
+                "reply": "这是测试回复！"
+            }
+        }
 
 + Response 500 (application/json)
 
-{
-    "code": 305,
-    "msg": "回复失败，时间戳标签不一致!!",
-    "result": {
-        "objectId": "574519e1c4c971002345eb25",
-        "userId": "5742762979bc44005ca9bb3e",
-        "userName": "李大塆",
-        "type": 1,
-        "content": "发现自行车丢了找物业，发现原来是忘记锁了物业把它放到安全的地方去了，这点做的很好",
-        "picture": "http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//NjI0M2QxYjctZmRiMC00NWRmLTg5NTktMTY3MDRhZDE4M2UzcB1ICw.jpg,http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//Y2Q4MDIwNzgtZjQ0Yy00MTgxLWEyMTQtOTdiMzBiOWY2MDk3Elbjfw.jpg",
-        "confirmed": 1,
-        "reply": "这是测试回复！"
-    }
-}
+        {
+            "code": 305,
+            "msg": "回复失败，时间戳标签不一致!!",
+            "result": {
+                "objectId": "574519e1c4c971002345eb25",
+                "userId": "5742762979bc44005ca9bb3e",
+                "userName": "李大塆",
+                "type": 1,
+                "content": "发现自行车丢了找物业，发现原来是忘记锁了物业把它放到安全的地方去了，这点做的很好",
+                "picture": "http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//NjI0M2QxYjctZmRiMC00NWRmLTg5NTktMTY3MDRhZDE4M2UzcB1ICw.jpg,http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//Y2Q4MDIwNzgtZjQ0Yy00MTgxLWEyMTQtOTdiMzBiOWY2MDk3Elbjfw.jpg",
+                "confirmed": 1,
+                "reply": "这是测试回复！"
+            }
+        }
 
 ## 查询反馈记录 [/property/feedList?appId=123456&sign=202a39467d6bba35cfbdc6b76ee907e3&lastSyncDate=2016-05-25T02:01:13.646Z]
 
@@ -430,43 +466,42 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 
 + Response 200 (application/json)
 
-   {
-    "serverTime": "2016-5-25 14:54:52",
-    "lists": [
         {
-            "objectId": "574519e1c4c971002345eb26",
-            "userId": "574250c52b51e90057b1dd10",
-            "userName": "光速达测试号",
-            "type": 1,
-            "content": "水管漏水，联系物业，下午就来修了",
-            "picture": "http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//NjI0M2QxYjctZmRiMC00NWRmLTg5NTktMTY3MDRhZDE4M2UzcB1ICw.jpg,http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//Y2Q4MDIwNzgtZjQ0Yy00MTgxLWEyMTQtOTdiMzBiOWY2MDk3Elbjfw.jpg",
-            "confirmed": 2,
-            "reply": "这是我们应该做的"
-        },
-        {
-            "objectId": "574519e1c4c971002345eb27",
-            "userId": "574250c52b51e90057b1dd10",
-            "userName": "光速达测试号",
-            "type": 1,
-            "content": "电梯坏了反馈给物业，一小时后就有人来修了",
-            "picture": "http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//NjI0M2QxYjctZmRiMC00NWRmLTg5NTktMTY3MDRhZDE4M2UzcB1ICw.jpg,http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//Y2Q4MDIwNzgtZjQ0Yy00MTgxLWEyMTQtOTdiMzBiOWY2MDk3Elbjfw.jpg",
-            "confirmed": 2,
-            "reply": "这是我们应该做的"
-        },
-        {
-            "objectId": "574519e1c4c971002345eb25",
-            "userId": "5742762979bc44005ca9bb3e",
-            "userName": "李大塆",
-            "type": 1,
-            "content": "发现自行车丢了找物业，发现原来是忘记锁了物业把它放到安全的地方去了，这点做的很好",
-            "picture": "http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//NjI0M2QxYjctZmRiMC00NWRmLTg5NTktMTY3MDRhZDE4M2UzcB1ICw.jpg,http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//Y2Q4MDIwNzgtZjQ0Yy00MTgxLWEyMTQtOTdiMzBiOWY2MDk3Elbjfw.jpg",
-            "confirmed": 1,
-            "reply": "这是测试回复！"
+            "serverTime": "2016-5-25 14:54:52",
+            "lists": [
+                {
+                    "objectId": "574519e1c4c971002345eb26",
+                    "userId": "574250c52b51e90057b1dd10",
+                    "userName": "光速达测试号",
+                    "type": 1,
+                    "content": "水管漏水，联系物业，下午就来修了",
+                    "picture": "http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//NjI0M2QxYjctZmRiMC00NWRmLTg5NTktMTY3MDRhZDE4M2UzcB1ICw.jpg,http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//Y2Q4MDIwNzgtZjQ0Yy00MTgxLWEyMTQtOTdiMzBiOWY2MDk3Elbjfw.jpg",
+                    "confirmed": 2,
+                    "reply": "这是我们应该做的"
+                },
+                {
+                    "objectId": "574519e1c4c971002345eb27",
+                    "userId": "574250c52b51e90057b1dd10",
+                    "userName": "光速达测试号",
+                    "type": 1,
+                    "content": "电梯坏了反馈给物业，一小时后就有人来修了",
+                    "picture": "http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//NjI0M2QxYjctZmRiMC00NWRmLTg5NTktMTY3MDRhZDE4M2UzcB1ICw.jpg,http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//Y2Q4MDIwNzgtZjQ0Yy00MTgxLWEyMTQtOTdiMzBiOWY2MDk3Elbjfw.jpg",
+                    "confirmed": 2,
+                    "reply": "这是我们应该做的"
+                },
+                {
+                    "objectId": "574519e1c4c971002345eb25",
+                    "userId": "5742762979bc44005ca9bb3e",
+                    "userName": "李大塆",
+                    "type": 1,
+                    "content": "发现自行车丢了找物业，发现原来是忘记锁了物业把它放到安全的地方去了，这点做的很好",
+                    "picture": "http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//NjI0M2QxYjctZmRiMC00NWRmLTg5NTktMTY3MDRhZDE4M2UzcB1ICw.jpg,http://image-tdrz.oss-cn-shenzhen.aliyuncs.com/rt//Y2Q4MDIwNzgtZjQ0Yy00MTgxLWEyMTQtOTdiMzBiOWY2MDk3Elbjfw.jpg",
+                    "confirmed": 1,
+                    "reply": "这是测试回复！"
+                }
+            ]
         }
-    ]
-   }
 
 ## Group 智慧酒店API
 
 ## Group 交易中心API
-
