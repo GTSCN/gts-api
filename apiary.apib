@@ -670,6 +670,42 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
               ]
         }
         
+## 根据小区ID查询详情 [/1.1/functions/getNhDetail]
+
+### 查询详情 [POST]
+
+方法名：getNhDetail
+
++ Request (application/json)
+
+        {
+            "id":"5729943d2627f3053620c1d1"
+        }
+        
++ Response 200 (application/json)
+
+        {
+          "result": {
+            "nhId": "5729943d2627f3053620c1d0",
+            "name": "榕苑新村",
+            "address": "映月路位于益家超市旁",
+            "people": 2,
+            "gsdNum": "02",
+            "users": [
+              {
+                "objectId": "570381e2d342d3005cfc90b1",
+                "name": "刘必渠",
+                "avatar": "http://ac-htOwgAcS.clouddn.com/63I2ppBXz5lwusn7G5JZRlfinnyO183fGL9B8ISR.jpg"
+              },
+              {
+                "objectId": "5742c05e2b51e90057b54713",
+                "avatar": "http://gtscn.cn/templets/default/images/logo.jpg"
+              }
+            ]
+          }
+        }
+   
+   
 ## 切换主小区 [/1.1/functions/changeMyNhs]
 
 ### 切换 [POST]
