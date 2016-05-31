@@ -567,7 +567,204 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
                 }
             ]
         }
+        
+## 查询我的小区列表 [/1.1/functions/getMyNhList]
 
+### 查询 [POST]
+
+方法名：getMyNhList
+
+入参：无 需登录
+
++ Response 200 (application/json)
+
+        {
+          "result": {
+            "mainNh": "5729943d2627f3053620c1d1",
+            "nhList": [
+              {
+                "objectId": "5729943d2627f3053620c1d0",
+                "name": "榕苑新村",
+                "address": "映月路位于益家超市旁",
+                "people": 0
+              },
+              {
+                "objectId": "5729943d2627f3053620c1d1",
+                "name": "赋晖华庭",
+                "address": "南涌路63号",
+                "people": 0
+              }
+            ]
+          }
+        }
+        
+## 根据地区ID查询小区列表 [/1.1/functions/getNhList]
+
+### 查询 [POST]
+
+方法名：getNhList
+
++ Request (application/json)
+
+        {
+            "areaCode":44040403
+        }
++ Response 200 (application/json)
+
+        {
+              "result": [
+                {
+                  "objectId": "5729943d2627f3053620c1d0",
+                  "name": "榕苑新村",
+                  "address": "映月路位于益家超市旁",
+                  "people": 0
+                },
+                {
+                  "objectId": "5729943d2627f3053620c1d1",
+                  "name": "赋晖华庭",
+                  "address": "南涌路63号",
+                  "people": 0
+                },
+                {
+                  "objectId": "5729943d2627f3053620c1d2",
+                  "name": "祥晖苑",
+                  "address": "映月路128号",
+                  "people": 0
+                },
+                {
+                  "objectId": "5729943d2627f3053620c1d3",
+                  "name": "嘉裕大厦",
+                  "address": "榕月路24号",
+                  "people": 0
+                },
+                {
+                  "objectId": "5729943d2627f3053620c1d4",
+                  "name": "易发大厦",
+                  "address": "映月路316号",
+                  "people": 0
+                },
+                {
+                  "objectId": "5729943d2627f3053620c1d5",
+                  "name": "嘉富园",
+                  "address": "琴石路758号",
+                  "people": 0
+                },
+                {
+                  "objectId": "5729943d2627f3053620c1d6",
+                  "name": "嘉和茗园",
+                  "address": "映月路399号",
+                  "people": 0
+                },
+                {
+                  "objectId": "5729943d2627f3053620c1d7",
+                  "name": "鸿雅花园",
+                  "address": "中心唐人街尾",
+                  "people": 0
+                },
+                {
+                  "objectId": "5729943d2627f3053620c1d8",
+                  "name": "金梦园",
+                  "address": "映月路471号",
+                  "people": 0
+                }
+              ]
+        }
+        
+## 切换主小区 [/1.1/functions/changeMyNhs]
+
+### 切换 [POST]
+
+方法名：changeMyNhs
+
++ Request (application/json)
+
+        {
+            "newNhId":"5729943d2627f3053620c1d1"
+        }
++ Response 200 (application/json)
+
+        {
+          "result": {
+            "userExtend": {
+              "__type": "Pointer",
+              "className": "UserExtend",
+              "objectId": "574276e5c4c971006064d089"
+            },
+            "neighborList": {
+              "__type": "Relation",
+              "className": "Neighborhood"
+            },
+            "username": "18905029911",
+            "birthDay": "1980-11-15",
+            "emailVerified": false,
+            "nickName": "刘必渠",
+            "mobilePhoneNumber": "18905029911",
+            "avatar": "http://ac-htOwgAcS.clouddn.com/63I2ppBXz5lwusn7G5JZRlfinnyO183fGL9B8ISR.jpg",
+            "gender": 0,
+            "realName": "刘必渠",
+            "nhId": "5729943d2627f3053620c1d1",
+            "authData": null,
+            "mobilePhoneVerified": true,
+            "objectId": "570381e2d342d3005cfc90b1",
+            "createdAt": "2016-04-05T09:14:10.896Z",
+            "updatedAt": "2016-05-31T02:35:06.493Z"
+          }
+        }
+        
+## 添加我的小区 [/1.1/functions/addMyNeighbor]
+
+### 添加 [POST]
+
+方法名：addMyNeighbor
+
++ Request (application/json)
+
+        {
+            "id":"5729943d2627f3053620c1d1"
+        }        
+        
++ Response 200 (application/json)
+
+        {
+          "result": {
+            "userExtend": {
+              "__type": "Pointer",
+              "className": "UserExtend",
+              "objectId": "574276e5c4c971006064d089"
+            },
+            "neighborList": {
+              "__type": "Relation",
+              "className": "Neighborhood"
+            },
+            "username": "18905029911",
+            "birthDay": "1980-11-15",
+            "emailVerified": false,
+            "nickName": "刘必渠",
+            "mobilePhoneNumber": "18905029911",
+            "avatar": "http://ac-htOwgAcS.clouddn.com/63I2ppBXz5lwusn7G5JZRlfinnyO183fGL9B8ISR.jpg",
+            "gender": 0,
+            "realName": "刘必渠",
+            "nhId": "5729943d2627f3053620c1d1",
+            "authData": null,
+            "mobilePhoneVerified": true,
+            "objectId": "570381e2d342d3005cfc90b1",
+            "createdAt": "2016-04-05T09:14:10.896Z",
+            "updatedAt": "2016-05-31T02:35:06.493Z"
+          }
+        }
+        
+## 退出小区 [/1.1/functions/quitNhs]
+
+### 退出 [POST]
+
+方法名：quitNhs
+
++ Request (application/json)
+
+        {
+            "id":"5729943d2627f3053620c1d1"
+        }        
+        
 ## Group 智慧酒店API
 
 ## Group 交易中心API
