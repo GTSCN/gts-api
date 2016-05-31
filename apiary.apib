@@ -326,7 +326,73 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
                 "updatedAt": "2016-05-25T09:11:13.925Z"
             }
         }
+        
+## 支付 [/1.1/functions/payOrder]
 
+### 支付接口 [POST]
+
+用户下单接口
+
++ Parameters
+    + orderId : `5749437cdf0eea005bb14d0b` (string) - 订单ID
+    + payType : `1` (string) - 支付方式 1、支付宝 2、微信 3、货到付款
+    + price : `10` (number) - 支付金额
+    + clientIp : `127.0.0.1` (string) - 终端IP
+    + payAt : `2016-05-24 14:02:00` (string) - 支付时间
+
++ Request (application/json)
+
+        {
+            "orderId":"5749437cdf0eea005bb14d0b",
+            "price": 0.01,
+            "clientIp": "127.0.0.1",
+            "payType":2
+        }
+
++ Response 200 (application/json)
+
+        {
+             "result": {
+                  "id": "ch_Hm5uTSifDOuTy9iLeLPSurrD",
+                  "object": "charge",
+                  "created": 1410778843,
+                  "livemode": true,
+                  "paid": false,
+                  "refunded": false,
+                  "app": "app_1Gqj58ynP0mHeX1q",
+                  "channel": "upacp",
+                  "order_no": "123456789",
+                  "client_ip": "127.0.0.1",
+                  "amount": 100,
+                  "amount_settle": 100,
+                  "currency": "cny",
+                  "subject": "Your Subject",
+                  "body": "Your Body",
+                  "extra":{},
+                  "time_paid": null,
+                  "time_expire": 1410782443,
+                  "time_settle": null,
+                  "transaction_no": null,
+                  "refunds": {
+                    "object": "list",
+                    "url": "/v1/charges/ch_Hm5uTSifDOuTy9iLeLPSurrD/refunds",
+                    "has_more": false,
+                    "data": []
+                  },
+                  "amount_refunded": 0,
+                  "failure_code": null,
+                  "failure_msg": null,
+                  "credential": {
+                    "object": "credential",
+                    "upacp": {
+                      "tn": "201409151900430000000",
+                      "mode": "01"
+                    }
+                  },
+                  "description": null
+             }
+        }
+        
 ## 用户发布投诉表扬 [/1.1/function/addFeedBack]
 
 ### 用户发布投诉表扬 [POST]
