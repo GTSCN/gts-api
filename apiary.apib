@@ -568,6 +568,36 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
             ]
         }
         
+
+## 查询访客记录 [/property/visitorList?appId=123456&sign=202a39467d6bba35cfbdc6b76ee907e3&lastSyncDate=2016-05-25T02:01:13.646Z]
+
+### 查询访客记录 [GET]
+
+方法名：visitorList
+
+查询用户反馈记录
+
++ Response 200 (application/json)
+
+       {
+            "serverTime": "2016-06-03 15:43:15",
+            "lists": [
+                {
+                    "objectId": "5751334fdf0eea006442baf0",
+                    "visitedUserId": "574ffa7fd342d3005747c114",
+                    "visitedUserName": "13385067628",
+                    "visitTime": "2016-06-03T07:35:00.000Z",
+                    "expireTime": "2016-06-03T15:59:59.000Z",
+                    "name": "李四",
+                    "sex": 1,
+                    "carNo": "闽A-887766",
+                    "byCar": 1,
+                    "updateAt": "2016-06-03T07:43:10.183Z"
+                }
+            ]
+        }
+
+
 ## 查询我的小区列表 [/1.1/functions/getMyNhList]
 
 ### 查询 [POST]
