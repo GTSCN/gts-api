@@ -141,7 +141,6 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 参数名与参数值拼装起来的URL长度小于1024个字符时，可以用GET发起请求；参数类型含byte[]类型或拼装好的请求URL过长时，必须用POST发起请求。所有API都可以用POST发起请求。
 生成签名（sign）仅对未使用TOP官方SDK进行API调用时需要操作，如使用了TOP官方SDK，该步骤SDK会自动完成。
 
-## 参考资料
 
 ## Group 道闸设备接口
 
@@ -877,5 +876,64 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
         
         
 ## Group 智慧酒店API
+
+## PMS开房信息通知 [http://smarthotel.leanapp.cn/pmsapi/ihotel/arrive]
+
+### PMS开房信息通知 [POST]
+
+使用GET请求获取道闸通行用户数据。
+
++ Parameters
+    + appId : `5770958a816dfa0055e6f4e5` (string) - 第三方用户唯一凭证
+    + timestamp : `1463535207898` (number) - 请求提交的当前时间时间戳
+    + nonstr : `aaabbb` (string) - 当前加密签名使用的随机字符串
+    + sign : `0a20d32eda37038e2287ccf74b49e0f4` (string) - 签名算法为MD5（signStr + secret）
+    + arriveTime : `2016-04-19T02:06:57.931Z` (string) - PMS办理入住时间或变更时间，日期格式必须是 `2016-04-19T02:06:57.931Z` 的 UTC 时间
+    + mobiles : `GTS0001` (string[]) - 需要开通客控的手机号
+    + leaveTime : `2016-04-20T02:06:57.931Z` (string) - PMS计划退房时间时间，日期格式必须是 `2016-04-19T02:06:57.931Z` 的 UTC 时间
+    + roomsNum : `203` (string) - 入住房间号
+    
+    
++ Response 200 (application/json)
+
+        {
+             
+        }
+
++ Response 503 (application/json)
+
+        {
+            "errCode": 503,
+            "errMsg": "非法请求，签名内容未通过验证"
+        }
+        
+## PMS退房信息通知  [http://smarthotel.leanapp.cn/pmsapi/ihotel/leave]
+
+### PMS退房信息通知 [POST]
+
+使用GET请求获取道闸通行用户数据。
+
++ Parameters
+    + appId : `5770958a816dfa0055e6f4e5` (string) - 第三方用户唯一凭证
+    + timestamp : `1463535207898` (number) - 请求提交的当前时间时间戳
+    + nonstr : `aaabbb` (string) - 当前加密签名使用的随机字符串
+    + sign : `0a20d32eda37038e2287ccf74b49e0f4` (string) - 签名算法为MD5（signStr + secret）
+    + leaveTime : `2016-04-20T02:06:57.931Z` (string) - PMS计划退房时间时间，日期格式必须是 `2016-04-19T02:06:57.931Z` 的 UTC 时间
+    + roomsNum : `203` (string) - 入住房间号
+
++ Response 200 (application/json)
+
+        {
+            
+        }
+
++ Response 503 (application/json)
+
+        {
+            "errCode": 503,
+            "errMsg": "非法请求，签名内容未通过验证"
+        }
+        
+
 
 ## Group 交易中心API
