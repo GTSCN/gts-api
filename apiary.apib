@@ -887,6 +887,28 @@ HOST: http://smarthotel.leanapp.cn
 
 使用POST请求进行开房。
 
+返回值解释：
+
+| 参数名称 | 数据类型|描述|
+|--------|--------|------|---|
+|id|string|数据Id|
+|hotelName|string|酒店名称|
+|hotelMobile|string|酒店联系电话|
+|hotelPicture|string|酒店封面图|
+|hotelId|string|酒店ID|
+|startAt|string|入住开始时间|
+|endAt|string|入住结束时间|
+|mobiles|array|入住人手机号合集|
+|users|array|入住人已注册光速号对应用户Id|
+|authoType|string|房间权限类型|
+|roomId|string|房间ID|
+|roomName|string|房间名|
+|ccUrl|string|中控请求路径|
+|ccId|string|中控Id|
+|createdAt|string|数据创建|
+|updatedAt|string|数据更新时间|
+
+
 + Parameters
     + appId : `5770958a816dfa0055e6f4e5` (string) - 第三方用户唯一凭证
     + timestamp : `1463535207898` (number) - 请求提交的当前时间时间戳
@@ -946,6 +968,27 @@ HOST: http://smarthotel.leanapp.cn
 ### PMS退房信息通知 [POST]
 
 使用POST请求进行退房。
+
+返回值解释：
+
+| 参数名称 | 数据类型|描述|
+|--------|--------|------|---|
+|id|string|数据Id|
+|hotelName|string|酒店名称|
+|hotelMobile|string|酒店联系电话|
+|hotelPicture|string|酒店封面图|
+|hotelId|string|酒店ID|
+|startAt|string|入住开始时间|
+|endAt|string|入住结束时间|
+|mobiles|array|入住人手机号合集|
+|users|array|入住人已注册光速号对应用户Id|
+|authoType|string|房间权限类型|
+|roomId|string|房间ID|
+|roomName|string|房间名|
+|ccUrl|string|中控请求路径|
+|ccId|string|中控Id|
+|createdAt|string|数据创建|
+|updatedAt|string|数据更新时间|
 
 + Request (application/json)
         {
