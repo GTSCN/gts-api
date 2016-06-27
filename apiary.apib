@@ -285,10 +285,10 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 
 | 参数名称 | 数据类型|描述|
 |--------|--------|------|---|
-|openUser|必须|string|开锁人|
-|openTime|必须|string|开锁时间|
-|type|必须|string|门禁类型|
-|openType|必须|string|开锁类型|
+|openUser|string|开锁人|
+|openTime|string|开锁时间|
+|type|string|门禁类型|
+|openType|string|开锁类型|
 
 + Parameters
     + openTime : `2016-04-19T02:06:57.931Z` (string) - 开锁时间
@@ -889,7 +889,7 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
     + nonstr : `aaabbb` (string) - 当前加密签名使用的随机字符串
     + sign : `0a20d32eda37038e2287ccf74b49e0f4` (string) - 签名算法为MD5（signStr + secret）
     + arriveTime : `2016-04-19T02:06:57.931Z` (string) - PMS办理入住时间或变更时间，日期格式必须是 `2016-04-19T02:06:57.931Z` 的 UTC 时间
-    + mobiles : `GTS0001` (string[]) - 需要开通客控的手机号
+    + mobiles : [] (array[]) - 需要开通客控的手机号
     + leaveTime : `2016-04-20T02:06:57.931Z` (string) - PMS计划退房时间时间，日期格式必须是 `2016-04-19T02:06:57.931Z` 的 UTC 时间
     + roomsNum : `203` (string) - 入住房间号
     
