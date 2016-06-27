@@ -885,7 +885,7 @@ HOST: http://smarthotel.leanapp.cn
 
 ### PMS开房信息通知 [POST]
 
-使用GET请求获取道闸通行用户数据。
+使用POST请求进行开房。
 
 + Parameters
     + appId : `5770958a816dfa0055e6f4e5` (string) - 第三方用户唯一凭证
@@ -895,13 +895,43 @@ HOST: http://smarthotel.leanapp.cn
     + arriveTime : `2016-04-19T02:06:57.931Z` (string) - PMS办理入住时间或变更时间，日期格式必须是 `2016-04-19T02:06:57.931Z` 的 UTC 时间
     + mobiles : [] (array[]) - 需要开通客控的手机号
     + leaveTime : `2016-04-20T02:06:57.931Z` (string) - PMS计划退房时间时间，日期格式必须是 `2016-04-19T02:06:57.931Z` 的 UTC 时间
-    + roomsNum : `203` (string) - 入住房间号
-    
+    + roomNum : `203` (string) - 入住房间号
+    + productCode:''(string) - 产品编码
++ Request (application/json)
+        {
+            "appId":"5770958a816dfa0055e6f4e5",
+            "timestamp":"2016-06-27T10:04:05.512Z",
+            "nonstr":"sdad1231",
+            "sign":"1231",
+            "arriveTime":"2016-6-27 16:00:00",
+            "mobiles":["15705909310","13801596429"],
+            "leaveTime":"2016-06-30T08:00:00.000Z",
+            "roomNum":"123"，
+            "productCode":"1087"
+       }
     
 + Response 200 (application/json)
 
         {
-             
+            "id": "5770f97b79bc44005b081d02",
+            "hotelName": "杭州L酒店",
+            "hotelMobile": "110",
+            "hotelPicture": "http://ac-Jkj863gr.clouddn.com/00b50e4e79b614235a86.Jpg",
+            "hotelId": "56eebc6b128fe100513c51f1",
+            "startAt": "2016-06-27T08:00:00.000Z",
+            "endAt": "2016-06-30T08:00:00.000Z",
+            "mobiles":[
+            "15705909310",
+            "13801596429"
+            ],
+            "users":[],
+            "authoType": 1,
+            "roomId": "5768e4e780dda4005fa7e39a",
+            "roomName": "123",
+            "ccUrl": "12312322222",
+            "ccId": "111",
+            "createdAt": "2016-06-27T10:01:31.481Z",
+            "updatedAt": "2016-06-27T10:04:05.512Z"
         }
 
 + Response 503 (application/json)
@@ -915,7 +945,18 @@ HOST: http://smarthotel.leanapp.cn
 
 ### PMS退房信息通知 [POST]
 
-使用GET请求获取道闸通行用户数据。
+使用POST请求进行退房。
+
++ Request (application/json)
+        {
+            "appId":"5770958a816dfa0055e6f4e5",
+            "timestamp":"2016-06-27T08:00:00.000Z",
+            "nonstr":"sdad1231",
+            "sign":"1231",
+            "isDeBug":true,
+            "leaveTime":"2016-06-30T08:00:00.000Z",
+            "roomNum":"123"
+        }
 
 + Parameters
     + appId : `5770958a816dfa0055e6f4e5` (string) - 第三方用户唯一凭证
@@ -923,12 +964,30 @@ HOST: http://smarthotel.leanapp.cn
     + nonstr : `aaabbb` (string) - 当前加密签名使用的随机字符串
     + sign : `0a20d32eda37038e2287ccf74b49e0f4` (string) - 签名算法为MD5（signStr + secret）
     + leaveTime : `2016-04-20T02:06:57.931Z` (string) - PMS计划退房时间时间，日期格式必须是 `2016-04-19T02:06:57.931Z` 的 UTC 时间
-    + roomsNum : `203` (string) - 入住房间号
+    + roomNum : `203` (string) - 入住房间号
 
 + Response 200 (application/json)
 
-        {
-            
+       {
+            "id": "5770f97b79bc44005b081d02",
+            "hotelName": "杭州L酒店",
+            "hotelMobile": "110",
+            "hotelPicture": "http://ac-Jkj863gr.clouddn.com/00b50e4e79b614235a86.Jpg",
+            "hotelId": "56eebc6b128fe100513c51f1",
+            "startAt": "2016-06-27T08:00:00.000Z",
+            "endAt": "2016-06-30T08:00:00.000Z",
+            "mobiles":[
+            "15705909310",
+            "13801596429"
+            ],
+            "users":[],
+            "authoType": 1,
+            "roomId": "5768e4e780dda4005fa7e39a",
+            "roomName": "123",
+            "ccUrl": "12312322222",
+            "ccId": "111",
+            "createdAt": "2016-06-27T10:01:31.481Z",
+            "updatedAt": "2016-06-27T10:09:35.403Z"
         }
 
 + Response 503 (application/json)
