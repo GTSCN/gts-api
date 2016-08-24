@@ -89,7 +89,7 @@ HOST: http://gtsc.leanapp.cn/
 
 将待签名参数（包括API的公共参数和业务参数，除去sign参数和byte[]类型的参数）使用英文冒号拼接参数的key和value，根据拼接后的字符串的ASCII码表的顺序排序。如：foo:1, bar:2, foo_bar:3, foobar:4排序后的顺序是bar:2, foo:1, foo_bar:3, foobar:4。
 将排序好的字符串用英文逗号拼装在一起，在最后加上secret组成待签名字符串，根据上面的示例得到的结果为：bar:2,foo:1,foo_bar:3,foobar:4,secret:123456。
-把待签名字符串使用MD5算法进行摘要，如：md5(bar:2,foo:1,foo_bar:3,foobar:4,secret=123456),将摘要得到的字节流结果输出为十六进制字符串。
+把待签名字符串使用MD5算法进行摘要，如：md5(bar:2,foo:1,foo_bar:3,foobar:4,secret:123456),将摘要得到的字节流结果输出为十六进制字符串。
 说明：MD5是128位长度的摘要算法，用16进制表示，一个十六进制的字符能表示4个位，所以签名后的字符串长度固定为32个十六进制字符。
 
 ### 签名范例
