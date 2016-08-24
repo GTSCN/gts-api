@@ -1059,6 +1059,7 @@ HOST: http://smarthotel.leanapp.cn
             "nonstr":"sdad1231",
             "sign":"1231",
             "carNo":"闽A256CF",
+            "serialNumber":"",
             "triggerTime":"2016-06-30T08:00:00.000Z",
             "direction":"in",
             "parkingLength":120,
@@ -1073,6 +1074,7 @@ HOST: http://smarthotel.leanapp.cn
     + sign : `0a20d32eda37038e2287ccf74b49e0f4` (string) - 签名算法为MD5（signStr + secret）
     + triggerTime : `2016-04-20T02:06:57.931Z` (string) - 通行触发时间，日期格式必须是 `2016-04-19T02:06:57.931Z` 的 UTC 时间
     + carNo : `闽A256CF` (string) - 车牌号
+    + serialNumber : 把预定停车时传过去的serialNumber原样传回来
     + direction : `in` (string) - 通行方向，in进入，out离开
     + parkingLength : `120` (string) - 停车时长分钟数（可选，如果为离开提供该数据）
     + parkingFee : `100` (string) - 收费情况（可选）
