@@ -163,30 +163,36 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 + Response 200 (application/json)
 
         {
-            "total": 6,
+            "total": 10,
             "count": 2,
             "data": [{
-                "startTime": "2016-05-10T16:00:00.000Z",
-                "endTime": "2016-12-31T16:00:00.000Z",
-                "mId": "12354abdd",
-                "mobile": "18905029911",
-                "deviceId": "GTS0001",
-                "createdAt": "2016-05-26T11:44:08.509Z",
-                "updatedAt": "2016-05-26T11:45:04.861Z",
-                "gtsNo": "1212",
-                "communityCode": "3501240001",
-                "communityName": "光速达体验社区"
+                "startTime": "2016-07-22T10:37:26.000Z",
+                "endTime": "2017-07-01T02:33:45.000Z",
+                "mId": "15002e192a",
+                "kind": 1,
+                "mapType": 0,
+                "mobile": "13631293007",
+                "deviceId": "01163400000002",
+                "createdAt": "2016-09-06T09:44:58.005Z",
+                "updatedAt": "2016-09-06T10:51:00.225Z",
+                "isDel": 0,
+                "gtsNo": "13631293007",
+                "communityCode": "57ce93c3a22b9d006c30685b",
+                "communityName": "人闸测试用小区"
             }, {
-                "startTime": "2016-05-26T11:43:40.368Z",
-                "endTime": "2016-06-06T18:40:53.000Z",
-                "mId": "/5l7xT8jOkrp2WfmiiIujDk5ODQ0MjMxMDd4Y3ZZT0Q=ecosAmJsIYcE2GWOFwpXxjBFSlhadmlHNWl6RHJlSU8=",
-                "mobile": "18950333962",
-                "deviceId": "GTS0001",
-                "createdAt": "2016-05-26T11:43:42.421Z",
-                "updatedAt": "2016-05-26T11:45:33.639Z",
-                "gtsNo": "12313123",
-                "communityCode": "3501240001",
-                "communityName": ""
+                "startTime": "2016-07-22T10:37:26.000Z",
+                "endTime": "2017-07-01T02:33:45.000Z",
+                "mId": "379E96E9",
+                "kind": 3,
+                "mapType": 0,
+                "mobile": "13631293007",
+                "deviceId": "01163400000002",
+                "createdAt": "2016-09-09T10:13:29.579Z",
+                "updatedAt": "2016-09-12T02:04:41.945Z",
+                "isDel": 0,
+                "gtsNo": "13631293007",
+                "communityCode": "57ce93c3a22b9d006c30685b",
+                "communityName": "人闸测试用小区"
             }]
         }
 
@@ -216,6 +222,8 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 |  createdAt | string| 创建时间 |
 |  isDel | number| 是否删除 0-正常  1- 删除 |
 |  updatedAt |string| 最近更新时间 |
+|  kind  |number|使用类型1.蓝牙手机2.IC卡3.ID卡|
+|  mapType  |number|亲属关系0本人1长辈2小孩3其他|
 
 + Parameters
     + timestamp : `1463535207898` (number) - 请求提交的当前时间时间戳
@@ -243,30 +251,36 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 + Response 200 (application/json)
 
         {
-            "total": 6,
+            "total": 10,
             "count": 2,
             "data": [{
-                "startTime": "2016-05-10T16:00:00.000Z",
-                "endTime": "2016-12-31T16:00:00.000Z",
-                "mId": "12354abdd",
-                "mobile": "18905029911",
-                "deviceId": "GTS0001",
-                "createdAt": "2016-05-26T11:44:08.509Z",
-                "updatedAt": "2016-05-26T11:45:04.861Z",
-                "gtsNo": "1212",
-                "communityCode": "3501240001",
-                "communityName": "光速达体验社区"
+                "startTime": "2016-07-22T10:37:26.000Z",
+                "endTime": "2017-07-01T02:33:45.000Z",
+                "mId": "15002e192a",
+                "kind": 1,
+                "mapType": 0,
+                "mobile": "13631293007",
+                "deviceId": "01163400000002",
+                "createdAt": "2016-09-06T09:44:58.005Z",
+                "updatedAt": "2016-09-06T10:51:00.225Z",
+                "isDel": 0,
+                "gtsNo": "13631293007",
+                "communityCode": "57ce93c3a22b9d006c30685b",
+                "communityName": "人闸测试用小区"
             }, {
-                "startTime": "2016-05-26T11:43:40.368Z",
-                "endTime": "2016-06-06T18:40:53.000Z",
-                "mId": "/5l7xT8jOkrp2WfmiiIujDk5ODQ0MjMxMDd4Y3ZZT0Q=ecosAmJsIYcE2GWOFwpXxjBFSlhadmlHNWl6RHJlSU8=",
-                "mobile": "18950333962",
-                "deviceId": "GTS0001",
-                "createdAt": "2016-05-26T11:43:42.421Z",
-                "updatedAt": "2016-05-26T11:45:33.639Z",
-                "gtsNo": "12313123",
-                "communityCode": "3501240001",
-                "communityName": ""
+                "startTime": "2016-07-22T10:37:26.000Z",
+                "endTime": "2017-07-01T02:33:45.000Z",
+                "mId": "379E96E9",
+                "kind": 3,
+                "mapType": 0,
+                "mobile": "13631293007",
+                "deviceId": "01163400000002",
+                "createdAt": "2016-09-09T10:13:29.579Z",
+                "updatedAt": "2016-09-12T02:04:41.945Z",
+                "isDel": 0,
+                "gtsNo": "13631293007",
+                "communityCode": "57ce93c3a22b9d006c30685b",
+                "communityName": "人闸测试用小区"
             }]
         }
 
