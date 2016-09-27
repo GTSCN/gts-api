@@ -1086,6 +1086,49 @@ HOST: http://smarthotel.leanapp.cn
             "errMsg": "非法请求，签名内容未通过验证"
         }
         
+## 获取酒店入住信息（IP、端口）  [/pmsapi/getMyRoomDetail]
+
+### 获取酒店入住信息（IP、端口） [POST]
+
+使用POST请求获取入住酒店房间IP及端口号。
+
+返回值解释：
+
+| 参数名称 | 数据类型|描述|
+|--------|--------|------|---|
+|ip|string|ip地址|
+|port|number|端口号|
+
++ Request (application/json)
+        {
+            "appId":"57e9d82d2e958a00544f55eb",
+            "timestamp":"2016-6-27 16:00:00",
+            "nonstr":"sdad1231",
+            "sign":"e5f0ee2734656c7deb6741507ee37bba",
+            "roomNum":"905"
+        }
+
++ Parameters
+    + appId : `5770958a816dfa0055e6f4e5` (string) - 第三方用户唯一凭证
+    + timestamp : `1463535207898` (number) - 请求提交的当前时间时间戳
+    + nonstr : `aaabbb` (string) - 当前加密签名使用的随机字符串
+    + sign : `0a20d32eda37038e2287ccf74b49e0f4` (string) - 签名算法为MD5（signStr + secret）
+    + roomNum : `203` (string) - 入住房间号
+
++ Response 200 (application/json)
+
+       {
+            "ip": "191.168.131.31",
+            "port": 9991
+        }
+
++ Response 503 (application/json)
+
+        {
+            "errCode": 503,
+            "errMsg": "非法请求，签名内容未通过验证"
+        }
+
 
 
 ## Group 交易中心API
