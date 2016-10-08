@@ -373,6 +373,35 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
             "errMsg": "非法请求，签名内容未通过验证"
         }
 
+## 道闸注册ID获取对应APPID信息  [/gate/getAPPID]
+
+### 获取设备对应APPID及密钥 [POST]
+
+使用POST请求设备对应APPID及密钥。
+
++ Parameters
+    + timestamp : `1463535207898` (number) - 请求提交的当前时间时间戳
+    + nonstr : `aaabbb` (string) - 当前加密签名使用的随机字符串
+    + sign : `0a20d32eda37038e2287ccf74b49e0f4` (string) - 签名算法为MD5（signStr + secret）
+    + appId : `123456` (string) - 第三方用户唯一凭证
+    + deviceId : '123123213' (string)-设备ID
++ Response 200 (application/json)
+
+        {
+            "appId": "57ee1242d203090068692fed",
+            "timestamp": "2016-06-27T08:00:00.000Z",
+            "nonstr": "sdad1231",
+            "sign": "8b76d395d0068c0624f065c1c0f4c366",
+            "deviceId":"11123123",
+        }
+
++ Response 503 (application/json)
+
+        {
+            "errCode": 503,
+            "errMsg": "非法请求，签名内容未通过验证"
+        }
+
 
 ## Group 光速号API
 
