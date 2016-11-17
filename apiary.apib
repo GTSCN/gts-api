@@ -425,6 +425,16 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
     + sign : `4539c47bee03b354a4d2cf3154f79d31` (string) - 签名算法为MD5（signStr + secret）
     + appId : `57ee1242d203090068692fed` (string) - 第三方用户唯一凭证
     + nhName : `` (string)-小区名(可选)
++ Request (application/json)
+
+        {
+            "appId": "57ee1242d203090068692fed",
+            "timestamp": 1463535207898,
+            "nonstr": "sdad1231",
+            "sign": "4539c47bee03b354a4d2cf3154f79d31",
+            "nhName":""
+        }
+
 + Response 200 (application/json)
 
         [{
@@ -467,6 +477,17 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
     + appId : `57ee1242d203090068692fed` (string) - 第三方用户唯一凭证
     + nhId : `57870b9ca34131005b473aa7` (string)-小区ID
     + roomInfo : ``(string)-单元楼幢/房间名(格式[楼幢名,单元名-房间名])(可选)
++ Request (application/json)
+
+        {
+            "appId": "57ee1242d203090068692fed",
+            "timestamp": 1463535207898,
+            "nonstr": "sdad1231",
+            "sign": "4c1f2bc73eb57ada5525f2861a1cc747",
+            "nhId":"57870b9ca34131005b473aa7",
+            "roomInfo":""
+        }
+
 + Response 200 (application/json)
     
         [{
@@ -511,6 +532,16 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
     + sign : `f609113581a37bd5127c926399285e85` (string) - 签名算法为MD5（signStr + secret）
     + appId : `57ee1242d203090068692fed` (string) - 第三方用户唯一凭证
     + mobile : `` (string)-业主手机号(可选)
++ Request (application/json)
+
+        {
+            "appId": "57ee1242d203090068692fed",
+            "timestamp": 1463535207898,
+            "nonstr": "sdad1231",
+            "sign": "f609113581a37bd5127c926399285e85",
+            "mobile":""
+        }
+        
 + Response 200 (application/json)
 
         [{
@@ -548,6 +579,21 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
     + name : `` (string)-卡绑定人的姓名（备注名）(可选)
     + roomId : `57df523d128fe10064d38bf0` (string)-卡绑定单元室ID
     + userId : `570381e2d342d3005cfc90b1`(string)-绑卡人ID（业主）
++ Request (application/json)
+
+        {
+            "appId": "57ee1242d203090068692fed",
+            "timestamp": 1463535207898,
+            "nonstr": "sdad1231",
+            "sign": "17c26e645fa2398174bb20c6e027444b",
+            "mid":"11111111111",
+            "type":2,
+            "userKind":null,
+            "name":"",
+            "userId":"570381e2d342d3005cfc90b1",
+            "roomId":"57df523d128fe10064d38bf0"
+        }
+
 + Response 200 (application/json)
 
         "绑卡成功！"
