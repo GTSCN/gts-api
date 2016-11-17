@@ -421,19 +421,17 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 
 + Parameters
     + timestamp : `1463535207898` (number) - 请求提交的当前时间时间戳
-    + nonstr : `aaabbb` (string) - 当前加密签名使用的随机字符串
-    + sign : `0a20d32eda37038e2287ccf74b49e0f4` (string) - 签名算法为MD5（signStr + secret）
-    + appId : `123456` (string) - 第三方用户唯一凭证
-    + nhName : '123123213' (string)-小区名(可选)
+    + nonstr : `sdad1231` (string) - 当前加密签名使用的随机字符串
+    + sign : `4539c47bee03b354a4d2cf3154f79d31` (string) - 签名算法为MD5（signStr + secret）
+    + appId : `57ee1242d203090068692fed` (string) - 第三方用户唯一凭证
+    + nhName : `` (string)-小区名(可选)
 + Response 200 (application/json)
 
-        {
-            "appId": "57ee1242d203090068692fed",
-            "timestamp": "2016-06-27T08:00:00.000Z",
-            "nonstr": "sdad1231",
-            "sign": "04a228abf053cc9ddbfbdf9d99b203d4",
-            "nhName":""
-        }
+        [{
+            "id":"576e2ae62e958a0078dcb5a1",
+            "name":"武夷名仕园",
+            "deviceId":"0000"
+        }]
 
 + Response 503 (application/json)
 
@@ -464,21 +462,22 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 
 + Parameters
     + timestamp : `1463535207898` (number) - 请求提交的当前时间时间戳
-    + nonstr : `aaabbb` (string) - 当前加密签名使用的随机字符串
-    + sign : `0a20d32eda37038e2287ccf74b49e0f4` (string) - 签名算法为MD5（signStr + secret）
-    + appId : `123456` (string) - 第三方用户唯一凭证
-    + nhId : '123123213' (string)-小区ID
-    + roomInfo : ''(string)-单元楼幢/房间名(格式[楼幢名,单元名-房间名])(可选)
+    + nonstr : `sdad1231` (string) - 当前加密签名使用的随机字符串
+    + sign : `4c1f2bc73eb57ada5525f2861a1cc747` (string) - 签名算法为MD5（signStr + secret）
+    + appId : `57ee1242d203090068692fed` (string) - 第三方用户唯一凭证
+    + nhId : `57870b9ca34131005b473aa7` (string)-小区ID
+    + roomInfo : ``(string)-单元楼幢/房间名(格式[楼幢名,单元名-房间名])(可选)
 + Response 200 (application/json)
-
-        {
-            "appId": "57ee1242d203090068692fed",
-            "timestamp": "2016-06-27T08:00:00.000Z",
-            "nonstr": "sdad1231",
-            "sign": "8e5f500d16b227937e9973e44f93c6ce",
-            "nhId":"57870b9ca34131005b473aa7",
-            "roomInfo":""
-        }
+    
+        [{
+            "id": "57be5a11165abd00663f7460",
+            "roomInfo": "7号楼,701",
+            "userId": "57425b8ec4c971006063fa03",
+            "userName": "郑书亭",
+            "userMobile": "18950333991",
+            "nhId": "57870b9ca34131005b473aa7",
+            "nhName": "光速达智慧社区"
+        }]
 
 + Response 503 (application/json)
 
@@ -508,18 +507,21 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 
 + Parameters
     + timestamp : `1463535207898` (number) - 请求提交的当前时间时间戳
-    + nonstr : `aaabbb` (string) - 当前加密签名使用的随机字符串
-    + sign : `0a20d32eda37038e2287ccf74b49e0f4` (string) - 签名算法为MD5（signStr + secret）
-    + appId : `123456` (string) - 第三方用户唯一凭证
-    + mobile : '' (string)-业主手机号(可选)
+    + nonstr : `sdad1231` (string) - 当前加密签名使用的随机字符串
+    + sign : `f609113581a37bd5127c926399285e85` (string) - 签名算法为MD5（signStr + secret）
+    + appId : `57ee1242d203090068692fed` (string) - 第三方用户唯一凭证
+    + mobile : `` (string)-业主手机号(可选)
 + Response 200 (application/json)
-        {
-            "appId": "57ee1242d203090068692fed",
-            "timestamp": "2016-06-27T08:00:00.000Z",
-            "nonstr": "sdad1231",
-            "sign": "254e42057c74540a0f7133d3cbf526c9",
-            "mobile":""
-        }
+
+        [{
+            "id": "576e345d0a2b580058ff14bb",
+            "roomInfo": "1幢,1单元-102室",
+            "userId": "572c04822e958a006679b363",
+            "userName": "杨敏",
+            "userMobile": "15905964830",
+            "nhId": "576e2ae62e958a0078dcb5a1",
+            "nhName": "武夷名仕园"
+        }]
 
 + Response 503 (application/json)
 
@@ -537,29 +539,18 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 
 + Parameters
     + timestamp : `1463535207898` (number) - 请求提交的当前时间时间戳
-    + nonstr : `aaabbb` (string) - 当前加密签名使用的随机字符串
-    + sign : `0a20d32eda37038e2287ccf74b49e0f4` (string) - 签名算法为MD5（signStr + secret）
-    + appId : `123456` (string) - 第三方用户唯一凭证
-    + mid : '' (string)-手机扫到的二维码解析后的字符串
-    + type : '' (number)-1.ID卡2.IC卡
-    + userKind : '' (number)-用户身份0本人1长辈2小孩3其他(可选)
-    + name : '' (string)-卡绑定人的姓名（备注名）(可选)
-    + roomId : '' (string)-卡绑定单元室ID
-    + userId : ''(string)-绑卡人ID（业主）
+    + nonstr : `sdad1231` (string) - 当前加密签名使用的随机字符串
+    + sign : `17c26e645fa2398174bb20c6e027444b` (string) - 签名算法为MD5（signStr + secret）
+    + appId : `57ee1242d203090068692fed` (string) - 第三方用户唯一凭证
+    + mid : `11111111111` (string)-手机扫到的二维码解析后的字符串
+    + type : `2` (number)-1.ID卡2.IC卡
+    + userKind : `null` (number)-用户身份0本人1长辈2小孩3其他(可选)
+    + name : `` (string)-卡绑定人的姓名（备注名）(可选)
+    + roomId : `57df523d128fe10064d38bf0` (string)-卡绑定单元室ID
+    + userId : `570381e2d342d3005cfc90b1`(string)-绑卡人ID（业主）
 + Response 200 (application/json)
 
-        {
-            "appId": "57ee1242d203090068692fed",
-            "timestamp": "2016-06-27T08:00:00.000Z",
-            "nonstr": "sdad1231",
-            "sign": "d844a85457282cf918c97623b831e0fc",
-            "mid":"11111111111",
-            "type":2,
-            "userKind":null,
-            "name":"",
-            "userId":"570381e2d342d3005cfc90b1",
-            "roomId":"57df523d128fe10064d38bf0"
-        }
+        "绑卡成功！"
 
 + Response 503 (application/json)
 
