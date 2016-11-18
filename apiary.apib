@@ -573,7 +573,7 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
     + nonstr : `sdad1231` (string) - 当前加密签名使用的随机字符串
     + sign : `17c26e645fa2398174bb20c6e027444b` (string) - 签名算法为MD5（signStr + secret）
     + appId : `57ee1242d203090068692fed` (string) - 第三方用户唯一凭证
-    + mid : `11111111111` (string)-手机扫到的二维码解析后的字符串
+    + mid : `11111111111` (string)-卡号
     + type : `2` (number)-1.ID卡2.IC卡
     + userKind : `null` (number)-用户身份0本人1长辈2小孩3其他(可选)
     + name : `` (string)-卡绑定人的姓名（备注名）(可选)
@@ -605,6 +605,38 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
             "errMsg": "非法请求，签名内容未通过验证"
         }
 
+## 解除IC、ID卡绑定接口 [/gate/unbundlingIDorICCard]
+
+### 解除IC、ID卡绑定接口  [POST]
+
+使用POST请求设备对应APPID及密钥。
+
++ Parameters
+    + timestamp : `1463535207898` (number) - 请求提交的当前时间时间戳
+    + nonstr : `sdad1231` (string) - 当前加密签名使用的随机字符串
+    + sign : `17c26e645fa2398174bb20c6e027444b` (string) - 签名算法为MD5（signStr + secret）
+    + appId : `57ee1242d203090068692fed` (string) - 第三方用户唯一凭证
+    + mid : `11111111111` (string)-卡号
++ Request (application/json)
+
+        {
+            "appId": "57ee1242d203090068692fed",
+            "timestamp": 1463535207898,
+            "nonstr": "sdad1231",
+            "sign": "f396d4cd74ca7462bf7e43e681398a7d",
+            "mid":"11111111111"
+        }
+
++ Response 200 (application/json)
+
+        "解绑成功！"
+
++ Response 503 (application/json)
+
+        {
+            "errCode": 503,
+            "errMsg": "非法请求，签名内容未通过验证"
+        }
 
 ## Group 光速号API
 
