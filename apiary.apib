@@ -409,7 +409,7 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 
 ### 获取小区列表（小区名称模糊搜索）  [POST]
 
-使用POST请求小区列表，需将登录接口返回的header中的Token参数放置于header回传。
+使用POST请求小区列表，需将登录接口返回的header中的Token参数放置于body参与签名并回传。
 
 返回值解释：
 
@@ -426,6 +426,7 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
     + sign : `4539c47bee03b354a4d2cf3154f79d31` (string) - 签名算法为MD5（signStr + secret）
     + appId : `57ee1242d203090068692fed` (string) - 第三方用户唯一凭证
     + nhName : `` (string)-小区名(可选)
+    + token : ``(string)-登录返回的token
 + Request (application/json)
 
         {
@@ -433,7 +434,8 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
             "timestamp": 1463535207898,
             "nonstr": "sdad1231",
             "sign": "4539c47bee03b354a4d2cf3154f79d31",
-            "nhName":""
+            "nhName":"",
+            "token":""
         }
 
 + Response 200 (application/json)
@@ -478,6 +480,7 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
     + appId : `57ee1242d203090068692fed` (string) - 第三方用户唯一凭证
     + nhId : `57870b9ca34131005b473aa7` (string)-小区ID
     + roomInfo : ``(string)-单元楼幢/房间名(格式[楼幢名,单元名-房间名])(可选)
+    + token : ``(string)-登录返回的token
 + Request (application/json)
 
         {
@@ -486,7 +489,8 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
             "nonstr": "sdad1231",
             "sign": "4c1f2bc73eb57ada5525f2861a1cc747",
             "nhId":"57870b9ca34131005b473aa7",
-            "roomInfo":""
+            "roomInfo":"",
+            "token":""
         }
 
 + Response 200 (application/json)
@@ -533,6 +537,7 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
     + sign : `f609113581a37bd5127c926399285e85` (string) - 签名算法为MD5（signStr + secret）
     + appId : `57ee1242d203090068692fed` (string) - 第三方用户唯一凭证
     + mobile : `` (string)-业主手机号(可选)
+    + token : ``(string)-登录返回的token
 + Request (application/json)
 
         {
@@ -540,7 +545,8 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
             "timestamp": 1463535207898,
             "nonstr": "sdad1231",
             "sign": "f609113581a37bd5127c926399285e85",
-            "mobile":""
+            "mobile":"",
+            "token":""
         }
         
 + Response 200 (application/json)
@@ -580,6 +586,7 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
     + name : `` (string)-卡绑定人的姓名（备注名）(可选)
     + roomId : `57df523d128fe10064d38bf0` (string)-卡绑定单元室ID
     + userId : `570381e2d342d3005cfc90b1`(string)-绑卡人ID（业主）
+    + token : ``(string)-登录返回的token
 + Request (application/json)
 
         {
@@ -592,7 +599,8 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
             "userKind":null,
             "name":"",
             "userId":"570381e2d342d3005cfc90b1",
-            "roomId":"57df523d128fe10064d38bf0"
+            "roomId":"57df523d128fe10064d38bf0",
+            "token":""
         }
 
 + Response 200 (application/json)
@@ -618,6 +626,7 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
     + sign : `17c26e645fa2398174bb20c6e027444b` (string) - 签名算法为MD5（signStr + secret）
     + appId : `57ee1242d203090068692fed` (string) - 第三方用户唯一凭证
     + mid : `11111111111` (string)-卡号
+    + token : ``(string)-登录返回的token
 + Request (application/json)
 
         {
@@ -625,7 +634,8 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
             "timestamp": 1463535207898,
             "nonstr": "sdad1231",
             "sign": "f396d4cd74ca7462bf7e43e681398a7d",
-            "mid":"11111111111"
+            "mid":"11111111111",
+            "token":""
         }
 
 + Response 200 (application/json)
