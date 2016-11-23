@@ -408,7 +408,7 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 
 ### 获取小区列表（小区名称模糊搜索）  [POST]
 
-使用POST请求设备对应APPID及密钥。
+使用POST请求小区列表，需将登录接口返回的header中的Token参数放置于header回传。
 
 返回值解释：
 
@@ -455,7 +455,7 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 
 ### 通过单元名获取业主列表  [POST]
 
-使用POST请求设备对应APPID及密钥。
+使用POST请求获取业主列表。
 
 返回值解释：
 
@@ -511,7 +511,7 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 
 ### 通过业主手机号获取业主的所有入住的楼幢  [POST]
 
-使用POST请求设备对应APPID及密钥。
+使用POST请求获取业主的所有入住的楼幢。
 
 返回值解释：
 
@@ -566,7 +566,7 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 
 ### 绑定IC、ID卡接口  [POST]
 
-使用POST请求设备对应APPID及密钥。
+使用POST请求绑定IC、ID卡。
 
 + Parameters
     + timestamp : `1463535207898` (number) - 请求提交的当前时间时间戳
@@ -609,7 +609,7 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
 
 ### 解除IC、ID卡绑定接口  [POST]
 
-使用POST请求设备对应APPID及密钥。
+使用POST请求解除IC、ID卡绑定。
 
 + Parameters
     + timestamp : `1463535207898` (number) - 请求提交的当前时间时间戳
@@ -637,6 +637,42 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
             "errCode": 503,
             "errMsg": "非法请求，签名内容未通过验证"
         }
+
+## 登入接口 [/gate/login]
+
+### 登入接口  [POST]
+
+使用POST请求登入。
+
++ Parameters
+    + timestamp : `1463535207898` (number) - 请求提交的当前时间时间戳
+    + nonstr : `sdad1231` (string) - 当前加密签名使用的随机字符串
+    + sign : `17c26e645fa2398174bb20c6e027444b` (string) - 签名算法为MD5（signStr + secret）
+    + appId : `57ee1242d203090068692fed` (string) - 第三方用户唯一凭证
+    + username:`11123123`(string)-登录账号（物业的光速达账号）,
+    + password:`123123`(string)-登录密码
++ Request (application/json)
+
+        {
+            "appId": "57ee1242d203090068692fed",
+            "timestamp": "2016-06-27T08:00:00.000Z",
+            "nonstr": "sdad1231",
+            "sign": "7ea6385e067862131c820ef7a1900723",
+            "username":"",
+            "password":""
+        }
+
++ Response 200 (application/json)
+
+        "登录成功！"
+
++ Response 503 (application/json)
+
+        {
+            "errCode": 503,
+            "errMsg": "非法请求，签名内容未通过验证"
+        }
+
 
 ## Group 光速号API
 
