@@ -403,6 +403,53 @@ http://gtsc.leanapp.cn/gate/?appId=123456&deviceId=GTS0001&nonstr=aaabbb&pageInd
             "errMsg": "非法请求，签名内容未通过验证"
         }
 
+##  检测ID卡是否已上传[/gate/checkIDCard]
+
+###  检测ID卡是否已上传[POST]
+
+使用POST请求检测ID卡是否已上传。
+
+返回值解释：
+
+| 参数名称 | 数据类型|描述|
+|--------|--------|------|---|
+|openUser|string|开锁人|
+|openTime|string|开锁时间|
+|type|string|门禁类型|
+|openType|string|开锁类型|
+
++ Parameters
+    + timestamp : `1463535207898` (number) - 请求提交的当前时间时间戳
+    + nonstr : `aaabbb` (string) - 当前加密签名使用的随机字符串
+    + sign : `0a20d32eda37038e2287ccf74b49e0f4` (string) - 签名算法为MD5（signStr + secret）
+    + appId : `123456` (string) - 第三方用户唯一凭证
+    + idNum : `2016-04-19T02:06:57.931Z` (string) - 开锁时间
+
++ Request (application/json)
+
+        {
+            "appId": "57ee1242d203090068692fed",
+            "timestamp": 1463535207898,
+            "nonstr": "sdad1231",
+            "sign": "1a5a6eb76bd07d3e8a8b35ddd2d63fa6",
+            "idNum":"10000000264b"
+        }
+
++ Response 200 (application/json)
+        [{
+            "idNum": "10000000264b",
+            "mapNum": "ABD12FFD"
+        }]
+
++ Response 503 (application/json)
+
+        {
+            "errCode": 503,
+            "errMsg": "非法请求，签名内容未通过验证"
+        }
+
+
+
 
 
 ## 获取小区列表  [/gate/getNhList]
